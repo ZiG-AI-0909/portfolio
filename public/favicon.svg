@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      @keyframes scanlines {
+        0%, 100% {
+          transform: translateY(-100%);
+        }
+        50% {
+          transform: translateY(100%);
+        }
+      }
+      
+      @keyframes glow {
+        0%, 100% {
+          filter: drop-shadow(0 0 2px #00ff88) drop-shadow(0 0 8px #00ff88);
+        }
+        50% {
+          filter: drop-shadow(0 0 4px #00ff88) drop-shadow(0 0 16px #00ff88);
+        }
+      }
+      
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+      .glow-char {
+        animation: glow 1.5s ease-in-out infinite;
+      }
+      
+      .rotate {
+        animation: rotate 4s linear infinite;
+        transform-origin: 50px 50px;
+      }
+    </style>
+    
+    <linearGradient id="neon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0080ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100" height="100" fill="#0a0a0a"/>
+  
+  <!-- Outer hexagon - rotating -->
+  <g class="rotate">
+    <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="url(#neon-grad)" stroke-width="2"/>
+  </g>
+  
+  <!-- Inner geometric shapes -->
+  <g class="glow-char">
+    <!-- Center hexagon -->
+    <polygon points="50,30 70,40 70,60 50,70 30,60 30,40" fill="#00ff88" opacity="0.3"/>
+    
+    <!-- Core diamond -->
+    <polygon points="50,35 65,50 50,65 35,50" fill="#00ff88" opacity="0.8"/>
+  </g>
+  
+  <!-- Tech corner accents -->
+  <g stroke="#0080ff" stroke-width="1" opacity="0.6">
+    <line x1="15" y1="15" x2="22" y2="15"/>
+    <line x1="15" y1="15" x2="15" y2="22"/>
+    <line x1="85" y1="15" x2="78" y2="15"/>
+    <line x1="85" y1="15" x2="85" y2="22"/>
+    <line x1="15" y1="85" x2="22" y2="85"/>
+    <line x1="15" y1="85" x2="15" y2="78"/>
+    <line x1="85" y1="85" x2="78" y2="85"/>
+    <line x1="85" y1="85" x2="85" y2="78"/>
+  </g>
+</svg>
