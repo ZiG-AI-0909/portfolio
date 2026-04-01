@@ -22,7 +22,7 @@ export function initFaviconLoader() {
   context.strokeStyle = gradient;
   context.lineWidth = 3;
   context.lineCap = 'square';
-  context.lineJoin = 'square';
+  context.lineJoin = 'miter';
 
   // Function to draw the loader with cyberpunk effects
   function drawLoader() {
@@ -152,7 +152,7 @@ function drawLoader() {
   context.strokeStyle = gradient;
   context.lineWidth = 3;
   context.lineCap = 'square';
-  context.lineJoin = 'square';
+  context.lineJoin = 'miter';
   
   context.beginPath();
 
