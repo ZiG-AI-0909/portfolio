@@ -4,7 +4,14 @@ import { ArrowRight, Zap, Download, Mail } from "lucide-react";
 
 const HeroSection = () => {
   const highlights = useMemo(
-    () => ["React-first interfaces", "AI-powered automation", "Product-led revenue"],
+    () => [
+      "React-first interfaces",
+      "AI-powered automation",
+      "Product-led revenue",
+      "Conversion-focused UX",
+      "Data-driven decisions",
+      "Scalable systems"
+    ],
     []
   );
 
@@ -25,26 +32,21 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8"
+            className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-12 sm:p-16"
           >
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 text-lg font-bold text-slate-950 shadow-lg shadow-cyan-500/20">
-                  BK
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Frontend Developer</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-white">Bhavesh Kumar Tiwari</h2>
-                  <p className="text-sm text-muted-foreground">React | AI Automation | Product Thinking</p>
-                </div>
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-start">
+              <div className="flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-lg shadow-cyan-500/20 overflow-hidden">
+                <img src="/User.jpeg" alt="Bhavesh Kumar Tiwari" className="h-full w-full object-cover" />
               </div>
-              <div className="rounded-3xl bg-slate-950/80 px-4 py-3 text-sm text-foreground shadow-lg shadow-slate-950/30">
-                Built 15+ automation workflows reducing manual work by 40% and improving adoption by 60%
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Frontend Developer</p>
+                <h2 className="mt-3 text-4xl sm:text-5xl font-semibold text-white">Bhavesh Kumar Tiwari</h2>
+                <p className="mt-3 text-lg text-muted-foreground">React | AI Automation | Product Thinking</p>
               </div>
             </div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-4 py-2 text-sm text-muted-foreground">
-              <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse" />
-              React + Product Thinking + AI Automation
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-4 py-2 text-sm text-muted-foreground w-fit">
+              <span className="h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse" />
+              I am available to join immediately
             </div>
           </motion.div>
 
@@ -87,14 +89,17 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.4 }}
-            className="mt-10 grid gap-4 sm:grid-cols-3"
+            className="mt-10 glass rounded-3xl px-8 py-8 border border-white/10"
           >
-            {highlights.map(item => (
-              <div key={item} className="glass rounded-3xl px-5 py-5 border border-white/10 hover:-translate-y-1 transition-transform duration-300">
-                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-3">Result</p>
-                <p className="text-sm text-foreground font-semibold">{item}</p>
-              </div>
-            ))}
+            <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-6">Results & Outcomes</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {highlights.map(item => (
+                <div key={item} className="flex items-center gap-3">
+                  <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                  <p className="text-sm text-foreground font-medium">{item}</p>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

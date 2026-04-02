@@ -8,7 +8,7 @@ const ContactSection = () => {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const subject = encodeURIComponent("New project inquiry");
+    const subject = encodeURIComponent("New project inquiry from " + form.name);
     const body = encodeURIComponent(
       `Name: ${form.name}
 Email: ${form.email}
@@ -16,8 +16,10 @@ Email: ${form.email}
 Message:
 ${form.message}`
     );
-    window.location.href = `mailto:tiwaribhaveshkumar@gmail.com?subject=${subject}&body=${body}`;
-    setStatus("Opening your email client...");
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&subject=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank');
+    setStatus("Opening Gmail compose window...");
+    setTimeout(() => setStatus(""), 3000);
   };
 
   return (

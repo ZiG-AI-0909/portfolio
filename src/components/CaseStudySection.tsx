@@ -19,10 +19,7 @@ const projects = [
       { value: "24/7", label: "Automation" },
     ],
     stack: ["React.js", "AI Agents", "Workflow APIs", "Automation", "Dashboard UX"],
-    links: [
-      { label: "Live Demo", href: "#contact", icon: ExternalLink },
-      { label: "GitHub", href: "https://github.com/ZiG-AI-0909", icon: Github },
-    ],
+    links: [],
   },
   {
     number: "02",
@@ -63,10 +60,7 @@ const projects = [
       { value: "3x", label: "Insights" },
     ],
     stack: ["Analytics", "A/B Testing", "Campaign Tools", "Data Strategy", "Reporting"],
-    links: [
-      { label: "Live Demo", href: "#contact", icon: ExternalLink },
-      { label: "GitHub", href: "https://github.com/ZiG-AI-0909", icon: Github },
-    ],
+    links: [],
   },
 ];
 
