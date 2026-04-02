@@ -34,11 +34,11 @@ const HeroSection = () => {
             transition={{ duration: 0.45 }}
             className="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-12 sm:p-16"
           >
-            <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-start">
+            <div className="flex flex-col gap-8 items-center justify-center sm:items-center sm:justify-start sm:flex-row">
               <div className="flex h-32 w-32 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 shadow-lg shadow-cyan-500/20 overflow-hidden">
                 <img src="/User.jpeg" alt="Bhavesh Kumar Tiwari" className="h-full w-full object-cover" />
               </div>
-              <div>
+              <div className="text-center sm:text-left">
                 <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Frontend Developer</p>
                 <h2 className="mt-3 text-4xl sm:text-5xl font-semibold text-white">Bhavesh Kumar Tiwari</h2>
                 <p className="mt-3 text-lg text-muted-foreground">React | AI Automation | Product Thinking</p>
