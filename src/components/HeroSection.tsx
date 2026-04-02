@@ -25,19 +25,36 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
-            className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted-foreground"
+            className="grid gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8"
           >
-            <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse" />
-            Available for frontend and product roles
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 via-violet-500 to-fuchsia-500 text-lg font-bold text-slate-950 shadow-lg shadow-cyan-500/20">
+                  BK
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Frontend Developer</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-white">Bhavesh Kumar Tiwari</h2>
+                  <p className="text-sm text-muted-foreground">React | AI Automation | Product Thinking</p>
+                </div>
+              </div>
+              <div className="rounded-3xl bg-slate-950/80 px-4 py-3 text-sm text-foreground shadow-lg shadow-slate-950/30">
+                Built 15+ automation workflows reducing manual work by 40% and improving adoption by 60%
+              </div>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-4 py-2 text-sm text-muted-foreground">
+              <span className="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-pulse" />
+              React + Product Thinking + AI Automation
+            </div>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mt-8 text-white"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mt-10 text-white"
           >
-            I build revenue-driven web products using <span className="text-gradient">React</span> & <span className="text-gradient">AI automation</span>
+            I build AI-powered web products & automation systems that generate leads and revenue
           </motion.h1>
 
           <motion.p
@@ -46,7 +63,7 @@ const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            Product-focused frontend systems that reduce manual work, improve conversion, and scale revenue for e-commerce and B2B businesses.
+            High-conversion React experiences, intelligent workflows, and SaaS-grade frontend systems designed to move metrics, not just launch features.
           </motion.p>
 
           <motion.div
@@ -58,10 +75,7 @@ const HeroSection = () => {
             <a href="#projects" className="btn-primary inline-flex items-center gap-2">
               <Zap size={16} /> View Projects <ArrowRight size={16} />
             </a>
-            <a
-              href="mailto:tiwaribhaveshkumar@gmail.com?subject=Resume%20Request"
-              className="btn-outline inline-flex items-center gap-2"
-            >
+            <a href="/Resume.pdf" download className="btn-outline inline-flex items-center gap-2">
               <Download size={16} /> Download Resume
             </a>
             <a href="#contact" className="btn-outline inline-flex items-center gap-2">
@@ -73,12 +87,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.4 }}
-            className="mt-10 grid gap-3 sm:grid-cols-3"
+            className="mt-10 grid gap-4 sm:grid-cols-3"
           >
             {highlights.map(item => (
-              <div key={item} className="glass rounded-3xl px-5 py-4">
-                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-2">{item}</p>
-                <p className="text-sm text-foreground font-medium">{item}</p>
+              <div key={item} className="glass rounded-3xl px-5 py-5 border border-white/10 hover:-translate-y-1 transition-transform duration-300">
+                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-3">Result</p>
+                <p className="text-sm text-foreground font-semibold">{item}</p>
               </div>
             ))}
           </motion.div>

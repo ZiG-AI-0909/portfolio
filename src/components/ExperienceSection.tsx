@@ -1,45 +1,56 @@
 import { motion } from "framer-motion";
+import { Briefcase, Zap, ShoppingBag, TrendingUp } from "lucide-react";
 
 const experiences = [
   {
+    icon: Briefcase,
     title: "Product Manager",
     company: "AI Agent Store",
     period: "Nov 2025 – Present",
+    impact: "Launched an AI agent marketplace with product-led automation and stakeholder alignment.",
+    metrics: ["15+ workflows", "40% ops reduction"],
     bullets: [
-      "Defined product roadmap, user flows, and launch milestones for an AI agent marketplace.",
-      "Aligned engineering, design, and operations around delivery velocity and quality.",
-      "Translated market feedback into prioritized feature releases.",
+      "Defined roadmap, user flows, and go-to-market requirements for AI products.",
+      "Reduced manual workload across operations with automation design.",
+      "Drove cross-functional delivery with design and engineering teams.",
     ],
   },
   {
+    icon: Zap,
     title: "Automation Specialist",
     company: "AI Agent Store",
     period: "Sep 2025 – Present",
-    metrics: ["15+ workflows built", "40% ops reduction", "60% adoption boost"],
+    impact: "Delivered intelligent systems that cut manual work and improved adoption.",
+    metrics: ["15+ workflows built", "60% adoption boost"],
     bullets: [
-      "Designed automation systems that removed repetitive team tasks.",
-      "Created scalable processes for AI-powered pipelines and operational workflows.",
-      "Produced documentation for rapid internal adoption.",
+      "Built automation pipelines that run across apps and processes.",
+      "Created operational documentation for fast team onboarding.",
+      "Measured impact with process and adoption metrics.",
     ],
   },
   {
+    icon: ShoppingBag,
     title: "Product Manager",
     company: "Karnataka Bangles Store",
     period: "Nov 2025 – Feb 2026",
+    impact: "Delivered a mobile-first commerce experience with SEO and order automation.",
+    metrics: ["8-week launch", "100% mobile-first"],
     bullets: [
-      "Led e-commerce product execution from discovery to production launch.",
-      "Scoped React frontend architecture, Shopify integration, and checkout flows.",
-      "Delivered a mobile-first experience in 8 weeks.",
+      "Led end-to-end build of a production e-commerce platform.",
+      "Designed checkout flows with WhatsApp order integration.",
+      "Launched a scalable catalog and order pipeline.",
     ],
   },
   {
+    icon: TrendingUp,
     title: "Digital Marketing Intern",
     company: "Just HR",
     period: "Jul 2025 – Sep 2025",
-    metrics: ["35% engagement increase", "20% ROI improvement"],
+    impact: "Scaled campaigns with analytics and conversion-focused optimization.",
+    metrics: ["35% engagement", "20% ROI"],
     bullets: [
-      "Built analytics-driven campaign strategies for lead growth.",
-      "Optimized performance based on engagement and conversion data.",
+      "Executed data-driven campaigns that grew audience engagement.",
+      "Optimized campaign performance using analytics and A/B testing.",
     ],
   },
 ];
@@ -57,7 +68,7 @@ const ExperienceSection = () => {
         >
           <span className="section-label mb-5 block">Experience</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-            Career timeline with product and delivery impact
+            Timeline of product impact and delivery
           </h2>
         </motion.div>
 
@@ -76,23 +87,25 @@ const ExperienceSection = () => {
                 <div className="absolute left-[-1px] top-2 flex items-center justify-center">
                   <span className="h-5 w-5 rounded-full bg-cyan-400 ring-8 ring-slate-950" />
                 </div>
-                <div className="glass rounded-3xl p-8 pl-10">
+                <div className="glass rounded-3xl p-8 pl-10 hover:-translate-y-1 transition-transform duration-300">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                     <div>
+                      <div className="inline-flex items-center gap-2 rounded-full bg-slate-950/70 px-3 py-2 text-xs text-muted-foreground mb-4">
+                        <exp.icon size={16} className="text-cyan-400" />
+                        {exp.company}
+                      </div>
                       <h3 className="font-display text-xl font-semibold text-foreground">{exp.title}</h3>
-                      <p className="text-sm text-muted-foreground mt-1">{exp.company}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{exp.period}</p>
                     </div>
-                    <div className="text-sm text-muted-foreground text-right">
-                      <p>{exp.period}</p>
-                      {exp.metrics && (
-                        <div className="mt-2 flex flex-wrap justify-end gap-2">
-                          {exp.metrics.map(metric => (
-                            <span key={metric} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                              {metric}
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                    <div className="text-right">
+                      <p className="text-sm text-muted-foreground">{exp.impact}</p>
+                      <div className="mt-3 flex flex-wrap justify-end gap-2">
+                        {exp.metrics.map(metric => (
+                          <span key={metric} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+                            {metric}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 

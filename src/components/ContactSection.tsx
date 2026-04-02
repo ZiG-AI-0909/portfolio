@@ -6,7 +6,7 @@ const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const subject = encodeURIComponent("New project inquiry");
     const body = encodeURIComponent(
@@ -35,7 +35,7 @@ ${form.message}`
         >
           <span className="section-label mb-5 block">Contact</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 leading-tight">
-            Let’s turn your next product idea into a polished launch.
+            Let’s build something impactful.
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-12 max-w-2xl">
             Ready for AI automation, premium React experiences, or conversion-focused commerce systems? Send a quick note and I’ll reply within one business day.
@@ -65,6 +65,9 @@ ${form.message}`
                       <span className="break-all">{item.label}</span>
                     </a>
                   ))}
+                  <a href="/Resume.pdf" download className="btn-primary inline-flex items-center justify-center rounded-full px-4 py-2 text-sm">
+                    Resume
+                  </a>
                 </div>
               </div>
 

@@ -97,6 +97,7 @@ const CaseStudySection = () => {
               key={p.name}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: i * 0.08 }}
               className="glass glass-hover rounded-3xl p-7 sm:p-10"
