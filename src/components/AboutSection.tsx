@@ -54,14 +54,14 @@ const AboutSection = () => {
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  "React expertise",
-                  "AI automation",
-                  "E-commerce experience",
-                  "Conversion-focused UX",
+                  { label: "React expertise", value: "Advanced patterns & architecture" },
+                  { label: "AI automation", value: "Workflow design & integration" },
+                  { label: "E-commerce experience", value: "Shopify & headless commerce" },
+                  { label: "Conversion-focused UX", value: "Analytics-driven design" },
                 ].map(item => (
-                  <div key={item} className="glass rounded-2xl px-5 py-4">
-                    <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-2">{item}</p>
-                    <p className="text-sm text-foreground font-medium">{item}</p>
+                  <div key={item.label} className="glass rounded-2xl px-5 py-4">
+                    <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-2">{item.label}</p>
+                    <p className="text-sm text-foreground font-medium">{item.value}</p>
                   </div>
                 ))}
               </div>
