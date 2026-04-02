@@ -40,7 +40,8 @@ const HeroSection = () => {
           >
             <span className="font-mono text-sm font-medium" style={{ color: "#39ff14" }}>AI Automation Developer</span>
             <span className="w-1 h-1 rounded-full bg-border" />
-            <span className="font-mono text-sm font-medium" style={{ color: "#ff2d78" }}>Shopify Developer</span>
+            <span className="font-mono text-sm font-medium" style={{ color: "#ff2d78" }}>Shopify/
+              Web Developer</span>
             <span className="w-1 h-1 rounded-full bg-border" />
             <span className="font-mono text-sm font-medium" style={{ color: "#00e5ff" }}>Lead Generation</span>
           </motion.div>
