@@ -37,6 +37,12 @@
 }
 
 @layer utilities {
+  .bg-hero-gradient {
+    background: radial-gradient(circle at top, rgba(56,189,248,0.18), transparent 22%), radial-gradient(circle at 85% 15%, rgba(168,85,247,0.2), transparent 18%), linear-gradient(180deg, #04070f 0%, #050b16 100%);
+  }
+  .section-padding { @apply py-28 px-6 relative; }
+  .container-content { @apply max-w-6xl mx-auto; }
+  .container-narrow { @apply max-w-5xl mx-auto; }
   .glass {
     background: rgba(255,255,255,0.04);
     backdrop-filter: blur(16px);
