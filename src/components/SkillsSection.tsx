@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Tool, BarChart3 } from "lucide-react";
+import { Code2, Wrench, BarChart3 } from "lucide-react";
 
 const groups = [
   {
@@ -12,7 +12,7 @@ const groups = [
   },
   {
     label: "Tools",
-    icon: Tool,
+    icon: Wrench,
     color: "rgba(6,182,212,0.12)",
     border: "rgba(6,182,212,0.3)",
     textColor: "#22d3ee",
