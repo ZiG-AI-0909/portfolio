@@ -5,12 +5,12 @@ import { ArrowRight, Zap, Download, Mail } from "lucide-react";
 const HeroSection = () => {
   const highlights = useMemo(
     () => [
-      "React-first interfaces",
-      "AI-powered automation",
-      "Product-led revenue",
-      "Conversion-focused UX",
-      "Data-driven decisions",
-      "Scalable systems"
+      "WhatsApp chatbots",
+      "Lead generation",
+      "Bulk outreach",
+      "E-commerce automation",
+      "OpenAI API integration",
+      "High-touch operations"
     ],
     []
   );
@@ -39,9 +39,9 @@ const HeroSection = () => {
                 <img src="/User.jpeg" alt="Bhavesh Kumar Tiwari" className="h-full w-full object-cover" />
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">Frontend Developer</p>
+                <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">AI Automation & Growth Specialist</p>
                 <h2 className="mt-3 text-4xl sm:text-5xl font-semibold text-white">Bhavesh Kumar Tiwari</h2>
-                <p className="mt-3 text-lg text-muted-foreground">React | AI Automation | Product Thinking</p>
+                <p className="mt-3 text-lg text-muted-foreground">OpenAI API · WhatsApp Bots · E-commerce · Lead Generation</p>
               </div>
             </div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/80 px-4 py-2 text-sm text-muted-foreground w-fit">
@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mt-10 text-white"
+            className="font-gothic text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight mt-10 text-white"
           >
             I build AI-powered web products & automation systems that generate leads and revenue
           </motion.h1>
@@ -65,7 +65,7 @@ const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed"
           >
-            High-conversion React experiences, intelligent workflows, and SaaS-grade frontend systems designed to move metrics, not just launch features.
+            Automation that reduces manual work. I build WhatsApp chatbots, lead generation systems, and e-commerce automation using OpenAI API and custom integrations—shipped, measured, and live.
           </motion.p>
 
           <motion.div
@@ -77,7 +77,7 @@ const HeroSection = () => {
             <a href="#projects" className="btn-primary inline-flex items-center gap-2">
               <Zap size={16} /> View Projects <ArrowRight size={16} />
             </a>
-            <a href="/Resume.pdf" download className="btn-outline inline-flex items-center gap-2">
+            <a href="/Resume.docx" download className="btn-outline inline-flex items-center gap-2">
               <Download size={16} /> Download Resume
             </a>
             <a href="#contact" className="btn-outline inline-flex items-center gap-2">

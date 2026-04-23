@@ -4,23 +4,23 @@ import { Bot, ShoppingBag, TrendingUp, Layers } from "lucide-react";
 const pillars = [
   {
     icon: Bot,
-    title: "AI Automation",
-    desc: "Designing intelligent workflows that remove manual handoffs and unlock recurring revenue.",
+    title: "Intelligent Automation",
+    desc: "OpenAI API and whatsapp-web.js powering workflows that eliminate manual work and scale operations.",
   },
   {
     icon: ShoppingBag,
-    title: "E-commerce Systems",
-    desc: "Building React-first storefronts and order pipelines that scale product discovery and conversions.",
+    title: "E-commerce & Growth",
+    desc: "Meesho and Etsy integrations paired with lead generation pipelines that drive measurable sales growth.",
   },
   {
     icon: TrendingUp,
-    title: "Growth Execution",
-    desc: "Aligning product decisions with metrics, analytics, and high-value business outcomes.",
+    title: "Lead Generation",
+    desc: "Bulk outreach campaigns and WhatsApp automation reaching 300–500 contacts per campaign with fast routing.",
   },
   {
     icon: Layers,
-    title: "Product Thinking",
-    desc: "Turning business goals into clear UX, scoped features, and fast delivery plans.",
+    title: "Growth Execution",
+    desc: "Turning business targets into shipped systems, metrics tracking, and weekly analytics reviews.",
   },
 ];
 
@@ -38,26 +38,26 @@ const AboutSection = () => {
           <div className="grid lg:grid-cols-[1.2fr,0.8fr] gap-16 items-start">
             <div>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-6 leading-tight">
-                Frontend Developer with <span className="text-gradient">Product Thinking</span> mindset
+                AI Automation & Growth Specialist with <span className="text-gradient">shipped systems</span>
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed text-base sm:text-lg">
                 <p>
-                  I build premium React experiences with a strong product lens: converting traffic, automating repetitive work, and shipping sustainable web products.
+                  I have a BBA in business and four months of shipped AI work: WhatsApp automation handling 100+ leads per day, bulk outreach campaigns reaching 300–500 contacts, and a live e-commerce store on Meesho and Etsy.
                 </p>
                 <p>
-                  My specialty is bridging UI execution with AI automation and e-commerce flows so teams can launch faster and capture real business results.
+                  My focus is automating manual workflows using OpenAI API, whatsapp-web.js, and custom integrations—measuring impact through operations reduction, lead routing speed, and revenue growth.
                 </p>
                 <p>
-                  From design and requirements to deployment, I focus on clean code, measurable outcomes, and polished product experiences.
+                  From problem definition to deployed systems and weekly analytics, I ship work that delivers measurable business outcomes.
                 </p>
               </div>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  { label: "React expertise", value: "Advanced patterns & architecture" },
-                  { label: "AI automation", value: "Workflow design & integration" },
-                  { label: "E-commerce experience", value: "Shopify & headless commerce" },
-                  { label: "Conversion-focused UX", value: "Analytics-driven design" },
+                  { label: "AI Automation", value: "OpenAI API, Claude AI, whatsapp-web.js" },
+                  { label: "Lead Generation", value: "Bulk outreach, lead routing pipelines" },
+                  { label: "E-commerce", value: "Meesho & Etsy operations + AI chatbot" },
+                  { label: "Background", value: "BBA degree + 4 months shipped AI" },
                 ].map(item => (
                   <div key={item.label} className="glass rounded-2xl px-5 py-4">
                     <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-2">{item.label}</p>

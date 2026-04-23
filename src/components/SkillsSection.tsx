@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { Code2, Wrench, BarChart3 } from "lucide-react";
+import { Bot, ShoppingBag, BarChart3 } from "lucide-react";
 
 const groups = [
   {
-    label: "Frontend",
-    icon: Code2,
+    label: "AI Automation",
+    icon: Bot,
     color: "rgba(99,102,241,0.16)",
     border: "rgba(99,102,241,0.3)",
     textColor: "#818cf8",
-    skills: ["React.js", "TypeScript", "Tailwind CSS", "Responsive UI", "Animations & Motion", "Accessibility"],
+    skills: ["OpenAI API", "Claude AI", "Prompt Engineering", "whatsapp-web.js", "GitHub Codex", "Node.js"],
   },
   {
-    label: "Tools",
-    icon: Wrench,
+    label: "E-commerce & Growth",
+    icon: ShoppingBag,
     color: "rgba(6,182,212,0.12)",
     border: "rgba(6,182,212,0.3)",
     textColor: "#22d3ee",
-    skills: ["Git & GitHub", "REST APIs", "Postman", "Vercel", "Figma handoff", "Shopify/Headless"],
+    skills: ["Store Deployment", "SEO Optimization", "Meesho", "Etsy", "Bulk Outreach", "Lead Generation Pipelines"],
   },
   {
-    label: "Product & Analytics",
+    label: "Marketing & Tools",
     icon: BarChart3,
     color: "rgba(16,185,129,0.12)",
     border: "rgba(16,185,129,0.3)",
     textColor: "#34d399",
-    skills: ["Conversion optimization", "A/B testing", "Roadmap planning", "Data-driven decisions", "AI automation strategy", "Stakeholder alignment"],
+    skills: ["Campaign Analytics", "Lead Routing", "Canva", "Google Analytics", "CRM Management", "GitHub"],
   },
 ];
 
@@ -40,7 +40,7 @@ const SkillsSection = () => {
         >
           <span className="section-label mb-5 block">Skills</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-14">
-            Modern frontend, tooling, and product expertise
+            AI automation, e-commerce, and growth tools
           </h2>
         </motion.div>
 

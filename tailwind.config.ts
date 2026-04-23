@@ -11,6 +11,7 @@ export default {
         display: ["Syne", "system-ui", "sans-serif"],
         sans: ["Outfit", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
+        gothic: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
