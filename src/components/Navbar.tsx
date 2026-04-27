@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -9,6 +10,56 @@ const navLinks = [
   { label: "Results", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
+
+interface PillLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+  isMobile?: boolean;
+}
+
+const PillLink = ({ href, children, onClick, isMobile = false }: PillLinkProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+
+  const baseStyles: React.CSSProperties = {
+    display: isMobile ? "block" : "inline-flex",
+    alignItems: "center",
+    padding: isMobile ? "11px 16px" : "7px 15px",
+    borderRadius: "9999px",
+    fontFamily: "'Outfit', sans-serif",
+    fontSize: isMobile ? "15px" : "13px",
+    fontWeight: 500,
+    color: isHovered ? "#ffffff" : "rgba(210, 225, 240, 0.72)",
+    background: isHovered ? "rgba(57, 255, 20, 0.06)" : "transparent",
+    border: isHovered ? "1px solid rgba(57, 255, 20, 0.30)" : "1px solid transparent",
+    cursor: "pointer",
+    textDecoration: "none",
+    transition: "all 200ms ease",
+    whiteSpace: "nowrap",
+    userSelect: "none",
+    width: isMobile ? "100%" : "auto",
+    transform: isPressed ? "translateY(0) scale(0.97)" : isHovered ? "translateY(-2px)" : "translateY(0)",
+    boxShadow: isHovered ? "0 0 14px rgba(57, 255, 20, 0.12)" : "none",
+  };
+
+  return (
+    <a
+      href={href}
+      style={baseStyles}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setIsPressed(false);
+      }}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onClick={onClick}
+    >
+      {children}
+    </a>
+  );
+};
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,34 +77,6 @@ const Navbar = () => {
         @keyframes pulse-dot {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.5; }
-        }
-        
-        .nav-pill {
-          border-radius: 9999px;
-          padding: 7px 15px;
-          font-size: 13px;
-          font-weight: 500;
-          color: rgba(210, 225, 240, 0.72);
-          background: transparent;
-          border: 1px solid transparent;
-          transition: all 200ms ease;
-          cursor: pointer;
-          position: relative;
-          font-family: 'Outfit', sans-serif;
-          text-decoration: none;
-          display: inline-block;
-        }
-        
-        .nav-pill:hover {
-          color: #ffffff;
-          border: 1px solid rgba(57, 255, 20, 0.30);
-          background: rgba(57, 255, 20, 0.06);
-          transform: translateY(-2px);
-          box-shadow: 0 0 14px rgba(57, 255, 20, 0.12);
-        }
-        
-        .nav-pill:active {
-          transform: translateY(0) scale(0.97);
         }
         
         .pulse-dot {
@@ -76,9 +99,9 @@ const Navbar = () => {
           {/* Desktop */}
           <nav className="hidden md:flex items-center gap-3">
             {navLinks.map(l => (
-              <a key={l.href} href={l.href} className="nav-pill">
+              <PillLink key={l.href} href={l.href}>
                 {l.label}
-              </a>
+              </PillLink>
             ))}
             <a href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity." target="_blank" rel="noopener noreferrer" className="btn-primary text-xs px-5 py-2.5 flex items-center gap-2">
               <span className="pulse-dot"></span>
@@ -86,25 +109,55 @@ const Navbar = () => {
             </a>
           </nav>
 
-          {/* Mobile */}
-          <button onClick={() => setOpen(!open)} className="md:hidden text-foreground p-1">
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile Hamburger */}
+          <div className="md:hidden h-11 w-11 flex items-center justify-center">
+            <button
+              onClick={() => setOpen(!open)}
+              className="text-foreground p-1"
+              aria-label="Toggle navigation"
+              aria-expanded={open}
+            >
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
-        {open && (
-          <div className="md:hidden mx-4 mt-2 glass rounded-2xl px-6 py-5 flex flex-col gap-3">
-            {navLinks.map(l => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="nav-pill">
-                {l.label}
+        {/* Mobile Drawer */}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mx-4 mt-2 glass rounded-2xl px-4 py-5 flex flex-col gap-2"
+              style={{
+                paddingBottom: "max(1.25rem, env(safe-area-inset-bottom))",
+              }}
+            >
+              {navLinks.map(l => (
+                <PillLink
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  isMobile
+                >
+                  {l.label}
+                </PillLink>
+              ))}
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="btn-primary text-sm mt-1 flex items-center justify-center gap-2 w-full"
+              >
+                <span className="pulse-dot"></span>
+                Hire Me
               </a>
-            ))}
-            <a href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity." target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary text-sm mt-1 flex items-center justify-center gap-2 w-full">
-              <span className="pulse-dot"></span>
-              Hire Me
-            </a>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );
