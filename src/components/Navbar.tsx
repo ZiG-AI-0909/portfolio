@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Results", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -24,7 +24,7 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}>
       <div className={`mx-auto max-w-6xl px-6 flex items-center justify-between rounded-2xl transition-all duration-500 ${scrolled ? "glass glow-blue py-3 mx-4 sm:mx-8" : ""}`}>
         <a href="#" className="font-display font-bold text-lg tracking-tight">
-          <span className="text-gradient">Portfolio</span>
+          <span className="text-gradient">Bhavesh</span>
         </a>
 
         {/* Desktop */}

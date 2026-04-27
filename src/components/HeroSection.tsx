@@ -5,12 +5,12 @@ import { ArrowRight, Zap, Download, Mail } from "lucide-react";
 const HeroSection = () => {
   const highlights = useMemo(
     () => [
-      "WhatsApp chatbots",
-      "Lead generation",
-      "Bulk outreach",
-      "E-commerce automation",
-      "OpenAI API integration",
-      "High-touch operations"
+      "100+ leads handled per day",
+      "40% operations reduction achieved",
+      "300–500 contacts per campaign",
+      "15+ automation workflows shipped",
+      "3 hours saved daily at JustHR",
+      "50+ SEO listings live on Meesho & Etsy",
     ],
     []
   );
@@ -91,7 +91,7 @@ const HeroSection = () => {
             transition={{ duration: 0.55, delay: 0.4 }}
             className="mt-10 glass rounded-3xl px-8 py-8 border border-white/10"
           >
-            <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-6">Results & Outcomes</p>
+            <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground mb-6">Shipped Impact</p>
             <div className="grid gap-4 sm:grid-cols-2">
               {highlights.map(item => (
                 <div key={item} className="flex items-center gap-3">
