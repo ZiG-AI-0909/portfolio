@@ -38,7 +38,9 @@ const projects = [
       { value: "300–500", label: "Per campaign" },
     ],
     stack: ["OpenAI API", "whatsapp-web.js", "Node.js"],
-    links: [],
+    links: [
+      { label: "GitHub", href: "https://github.com/ZiG-AI-0909/ZIG8055", icon: Github },
+    ],
   },
   {
     number: "03",
