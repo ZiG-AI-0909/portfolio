@@ -123,7 +123,7 @@ const projects = [
     stack: ["Node.js", "discord.js", "@discordjs/voice", "NVIDIA NIM / OpenAI API", "Whisper/Piper (local STT/TTS)", "ffmpeg"],
     links: [
       { label: "GitHub", href: "https://github.com/ZiG-AI-0909/ZiGBoT", icon: Github },
-      { label: "Add to Discord", href: "https://discord.gg/heer", icon: ExternalLink },
+      { label: "Discord", href: "https://discord.com/oauth2/authorize?client_id=1539530458390593576", icon: ExternalLink },
     ],
   },
   {
