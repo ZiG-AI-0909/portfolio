@@ -1,3 +1,4 @@
+import { Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
@@ -90,7 +91,7 @@ const projects = [
     type: "AI Automation",
     typeColor: "#a78bfa",
     typeBg: "rgba(139,92,246,0.12)",
-    typeBorder: "rgba(139,92,246,0.3)",
+    typeBorder: "rgba(117, 60, 251, 0.3)",
     problem: "Sales team was running WhatsApp lead conversations and bulk outreach manually — no scheduling, no contact tracking, and real risk of account bans from unsafe bulk-sending patterns.",
     solution: "Built a full-stack WhatsApp business platform: AI auto-reply grounded in a company knowledge base, Excel-driven bulk campaigns with one-time and recurring scheduling, a built-in contact CRM, and dual-provider support (WhatsApp Web + Business Cloud API) with rate-limiting and business-hours safeguards to protect account health.",
     result: "Automated first-response handling, enabled scheduled and recurring campaign delivery with real-time progress tracking, and eliminated manual ban risk through provider-aware throttling and safe-sending defaults.",
@@ -101,7 +102,7 @@ const projects = [
     ],
     stack: ["Node.js", "Express", "React", "Baileys", "WhatsApp Cloud API", "SQLite", "Socket.io", "NVIDIA NIM (LLM)"],
     links: [
-      { label: "GitHub", href: "https://github.com/ZiG-AI-0909/AI-WhatsApp-Business-Automation-Suite", icon: Github },
+      { label: "Live URL", href: "https://ai-whats-app-business-automation-su-theta.vercel.app/", icon: Globe },
     ],
   },
   {
