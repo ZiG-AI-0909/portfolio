@@ -21,7 +21,7 @@ const Footer = () => (
             {l.label}
           </a>
         ))}
-        <span className="font-mono text-xs text-muted-foreground">© 2026</span>
+        <span className="font-mono text-xs text-muted-foreground">© 2027</span>
       </div>
     </div>
   </footer>
