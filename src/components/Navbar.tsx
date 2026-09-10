@@ -103,7 +103,11 @@ const Navbar = () => {
                 {l.label}
               </PillLink>
             ))}
-            <a href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity." target="_blank" rel="noopener noreferrer" className="btn-primary text-xs px-5 py-2.5 flex items-center gap-2">
+            <a 
+          href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity."
+          target="_blank"
+          rel="noopener noreferrer"
+            className="btn-primary text-xs px-5 py-2.5 flex items-center justify-center gap-2">
               <span className="pulse-dot"></span>
               Hire Me
             </a>
