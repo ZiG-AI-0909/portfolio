@@ -1,7 +1,21 @@
 import { motion } from "framer-motion";
-import { Briefcase, Zap, ShoppingBag, TrendingUp } from "lucide-react";
+import { Briefcase, Zap, ShoppingBag, TrendingUp, Building2 } from "lucide-react";
 
 const experiences = [
+  {
+    icon: Building2,
+    title: "AI Marketing Agents Engineer",
+    company: "Sudarshan Pipes",
+    period: "Mar 2026 – Present",
+    impact: "Building AI-powered WhatsApp business automation and marketing agents for a pipe manufacturing company.",
+    metrics: ["2 WhatsApp channels", "AI auto-replies", "Auto scheduled campaigns"],
+    bullets: [
+      "Built a full-stack WhatsApp business automation platform with AI auto-reply grounded in a company knowledge base.",
+      "Delivered Excel-driven bulk campaign scheduling with one-time and recurring sends.",
+      "Added rate-limiting and business-hours safeguards to protect WhatsApp account health.",
+      "Designed and wrote an 8-page AI-assisted product catalogue aligned to IS 15328 / IS 16098 standards, later reused as the chatbot's knowledge base.",
+    ],
+  },
   {
     icon: Briefcase,
     title: "Automation Specialist",
