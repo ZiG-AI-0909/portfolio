@@ -33,6 +33,7 @@ const projects = [
     {
       label: "Visit Website",
       href: "https://www.aiagentstore.io/",
+      icon: ExternalLink
     },
   ],
 },
