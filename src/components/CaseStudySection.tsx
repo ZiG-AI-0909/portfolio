@@ -3,25 +3,39 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
-  {
-    number: "01",
-    name: "AI Automation Workflow Suite",
-    company: "AI Agent Store",
-    type: "AI Automation",
-    typeColor: "#a78bfa",
-    typeBg: "rgba(139,92,246,0.12)",
-    typeBorder: "rgba(139,92,246,0.3)",
-    problem: "Teams were spending hours on manual workflows, handoffs, and reporting instead of core product work.",
-    solution: "Built 15+ automation workflows across business processes using OpenAI API and custom Node.js integrations.",
-    result: "Achieved 40% operations reduction and 60% team adoption through clear documentation and iterative refinement.",
-    metrics: [
-      { value: "15+", label: "Workflows" },
-      { value: "40%", label: "Ops cut" },
-      { value: "60%", label: "Adoption" },
-    ],
-    stack: ["OpenAI API", "Node.js", "Cloud Integrations", "Process Documentation"],
-    links: [],
-  },
+ {
+  number: "01",
+  name: "AI Automation Workflow Suite",
+  company: "AI Agent Store",
+  type: "AI Automation",
+  typeColor: "#a78bfa",
+  typeBg: "rgba(139,92,246,0.12)",
+  typeBorder: "rgba(139,92,246,0.3)",
+  problem:
+    "Teams were spending hours on manual workflows, handoffs, and reporting instead of core product work.",
+  solution:
+    "Built 15+ automation workflows across business processes using OpenAI API and custom Node.js integrations.",
+  result:
+    "Achieved 40% operations reduction and 60% team adoption through clear documentation and iterative refinement.",
+  metrics: [
+    { value: "15+", label: "Workflows" },
+    { value: "40%", label: "Ops cut" },
+    { value: "60%", label: "Adoption" },
+  ],
+  stack: [
+    "OpenAI API",
+    "Node.js",
+    "Cloud Integrations",
+    "Process Documentation",
+  ],
+
+  links: [
+    {
+      label: "Visit Website",
+      href: "https://www.aiagentstore.io/",
+    },
+  ],
+},
   {
     number: "02",
     name: "WhatsApp Lead Automation System",
@@ -40,7 +54,7 @@ const projects = [
     ],
     stack: ["OpenAI API", "whatsapp-web.js", "Node.js"],
     links: [
-      { label: "GitHub", href: "https://github.com/ZiG-AI-0909/ZIG8055", icon: Github },
+      
     ],
   },
   {
@@ -61,7 +75,7 @@ const projects = [
     ],
     stack: ["OpenAI API", "whatsapp-web.js", "Meesho", "Etsy", "SEO", "Canva", "Claude AI", "GitHub Codex"],
     links: [
-      { label: "Live Store", href: "https://karnataka-bangles-store-lac.vercel.app/", icon: ExternalLink },
+      { label: "Live Store", href: "https://karnatakabanglestore.com/", icon: ExternalLink },
       { label: "GitHub", href: "https://github.com/BanglesAffairsOfficial/KarnatakaBanglesStore", icon: Github },
     ],
   },
@@ -82,7 +96,9 @@ const projects = [
       { value: "Weekly", label: "Reports" },
     ],
     stack: ["CRM Management", "Sales Ops", "Pipeline Tracking", "Analytics Reporting"],
-    links: [],
+    links: [
+             { label: "Visit Website", href: "https://ediglobe.com/", icon: Globe },
+    ],
   },
   {
     number: "05",
@@ -103,6 +119,7 @@ const projects = [
     stack: ["Node.js", "Express", "React", "Baileys", "WhatsApp Cloud API", "SQLite", "Socket.io", "NVIDIA NIM (LLM)"],
     links: [
       { label: "Live URL", href: "https://ai-whats-app-business-automation-su-theta.vercel.app/", icon: Globe },
+      { label: "GitHub", href: "https://github.com/Sudarshan-Pipes/AI-WhatsApp-Business-Automation-Suite", icon: Github },
     ],
   },
   {
