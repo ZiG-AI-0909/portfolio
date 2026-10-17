@@ -15,7 +15,6 @@ export const contact = {
 export const productLinks = {
   zigbot: {
     live: "https://zigbotai.vercel.app",
-    github: "https://github.com/ZiG-AI-0909/ZiGBoT",
     discord: "https://discord.com/oauth2/authorize?client_id=1539530458390593576",
   },
   sudarshan: {

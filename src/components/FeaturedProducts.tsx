@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
-import { ArrowUpRight, Check, Github, MessagesSquare } from "lucide-react";
+import { ArrowUpRight, Check, MessagesSquare } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import ZigbotMockup from "@/components/mockups/ZigbotMockup";
@@ -49,7 +49,6 @@ const products: Product[] = [
     cta: { label: "Visit ZigBot AI", href: productLinks.zigbot.live },
     secondary: [
       { label: "Add to Discord", href: productLinks.zigbot.discord, icon: MessagesSquare },
-      { label: "GitHub", href: productLinks.zigbot.github, icon: Github },
     ],
     mockup: <ZigbotMockup />,
   },
