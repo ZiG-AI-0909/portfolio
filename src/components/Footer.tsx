@@ -1,28 +1,74 @@
+import { contact, external, navLinks, productLinks } from "@/lib/site";
+
+const linkClass = "text-sm text-muted-foreground transition-colors hover:text-foreground";
+
 const Footer = () => (
-  <footer style={{ borderTop: "1px solid hsl(var(--border))" }} className="py-8 px-6">
-    <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div className="flex items-center gap-3">
-        <span className="font-display font-bold text-sm text-gradient">Bhavesh Kumar Tiwari</span>
-        <span className="font-mono text-xs text-muted-foreground">· AI Automation & Growth · Bengaluru, India</span>
+  <footer className="border-t border-white/[0.06] bg-surface-1/50">
+    <div className="container-content grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold text-foreground">
+          <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7" />
+          Bhavesh Kumar Tiwari
+        </a>
+        <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          AI applications, assistants and business automation · Bengaluru, India
+        </p>
       </div>
-      <div className="flex items-center gap-6">
-        {[
-          { label: "LinkedIn", href: "https://www.linkedin.com/in/bhavesh-kumar-tiwari-5043862b4/" },
-          { label: "GitHub", href: "https://github.com/ZiG-AI-0909" },
-          { label: "Email", href: "mailto:tiwaribhaveshkumar@gmail.com" },
-        ].map(l => (
-          <a
-            key={l.label}
-            href={l.href}
-            target={l.href.startsWith("http") ? "_blank" : undefined}
-            rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-            className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
-          >
-            {l.label}
-          </a>
-        ))}
-        <span className="font-mono text-xs text-muted-foreground">© 2027</span>
+
+      <nav aria-label="Footer">
+        <p className="font-mono text-xs uppercase tracking-widest text-foreground/80">Navigate</p>
+        <ul className="mt-4 space-y-2.5">
+          {navLinks.map(l => (
+            <li key={l.id}>
+              <a href={`#${l.id}`} className={linkClass}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest text-foreground/80">Products</p>
+        <ul className="mt-4 space-y-2.5">
+          <li>
+            <a href={productLinks.zigbot.live} {...external} className={linkClass}>
+              ZiGBoT AI
+            </a>
+          </li>
+          <li>
+            <a href={productLinks.sudarshan.live} {...external} className={linkClass}>
+              Sudarshan Pipes AI Assistant
+            </a>
+          </li>
+        </ul>
       </div>
+
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest text-foreground/80">Connect</p>
+        <ul className="mt-4 space-y-2.5">
+          <li>
+            <a href={contact.linkedin} {...external} className={linkClass}>
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href={contact.github} {...external} className={linkClass}>
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${contact.email}`} className={linkClass}>
+              Email
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div className="border-t border-white/[0.05]">
+      <p className="container-content py-6 font-mono text-xs text-muted-foreground">
+        © {new Date().getFullYear()} Bhavesh Kumar Tiwari
+      </p>
     </div>
   </footer>
 );

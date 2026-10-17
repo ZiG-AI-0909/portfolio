@@ -1,169 +1,174 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { contact, external, navLinks } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Results", href: "#achievements" },
-  { label: "Contact", href: "#contact" },
-];
+const useActiveSection = (ids: string[]) => {
+  const [active, setActive] = useState(ids[0]);
 
-interface PillLinkProps {
-  href: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-  isMobile?: boolean;
-}
+  useEffect(() => {
+    let frame = 0;
+    // The active section is the last one whose top has passed a line 35% down the viewport.
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.35;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      setActive(current);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [ids]);
 
-const PillLink = ({ href, children, onClick, isMobile = false }: PillLinkProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
-
-  const baseStyles: React.CSSProperties = {
-    display: isMobile ? "block" : "inline-flex",
-    alignItems: "center",
-    padding: isMobile ? "11px 16px" : "7px 15px",
-    borderRadius: "9999px",
-    fontFamily: "'Outfit', sans-serif",
-    fontSize: isMobile ? "15px" : "13px",
-    fontWeight: 500,
-    color: isHovered ? "#ffffff" : "rgba(210, 225, 240, 0.72)",
-    background: isHovered ? "rgba(57, 255, 20, 0.06)" : "transparent",
-    border: isHovered ? "1px solid rgba(57, 255, 20, 0.30)" : "1px solid transparent",
-    cursor: "pointer",
-    textDecoration: "none",
-    transition: "all 200ms ease",
-    whiteSpace: "nowrap",
-    userSelect: "none",
-    width: isMobile ? "100%" : "auto",
-    transform: isPressed ? "translateY(0) scale(0.97)" : isHovered ? "translateY(-2px)" : "translateY(0)",
-    boxShadow: isHovered ? "0 0 14px rgba(57, 255, 20, 0.12)" : "none",
-  };
-
-  return (
-    <a
-      href={href}
-      style={baseStyles}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        setIsPressed(false);
-      }}
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
-      onClick={onClick}
-    >
-      {children}
-    </a>
-  );
+  return active;
 };
+
+const sectionIds = navLinks.map(l => l.id);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const active = useActiveSection(sectionIds);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <>
-      <style>{`
-        @keyframes pulse-dot {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
-        
-        .pulse-dot {
-          display: inline-block;
-          width: 6px;
-          height: 6px;
-          background-color: #39ff14;
-          border-radius: 50%;
-          margin-right: 6px;
-          animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
+  useEffect(() => {
+    if (!open) return;
+    menuRef.current?.querySelector<HTMLElement>("a")?.focus();
 
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}>
-        <div className={`mx-auto max-w-6xl px-6 flex items-center justify-between rounded-2xl transition-all duration-500 ${scrolled ? "glass glow-blue py-3 mx-4 sm:mx-8" : ""}`}>
-          <a href="#" className="font-display font-bold text-lg tracking-tight">
-            <span className="text-gradient">Bhavesh</span>
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    const onResize = () => window.innerWidth >= 768 && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [open]);
+
+  return (
+    <header className="fixed inset-x-0 top-0 z-50">
+      <div
+        className={cn(
+          "border-b transition-colors duration-300",
+          scrolled || open ? "border-white/[0.06] bg-background/75 backdrop-blur-xl" : "border-transparent",
+        )}
+      >
+        <nav aria-label="Primary" className="container-content flex h-[var(--nav-height)] items-center justify-between gap-4">
+          <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-foreground">
+            <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7" />
+            Bhavesh
           </a>
 
-          {/* Desktop */}
-          <nav className="hidden md:flex items-center gap-3">
+          <ul className="hidden items-center gap-1 md:flex">
             {navLinks.map(l => (
-              <PillLink key={l.href} href={l.href}>
-                {l.label}
-              </PillLink>
+              <li key={l.id}>
+                <a
+                  href={`#${l.id}`}
+                  aria-current={active === l.id ? "location" : undefined}
+                  className={cn(
+                    "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    active === l.id ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {l.label}
+                  {active === l.id && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className="absolute inset-x-3 -bottom-px h-px bg-primary"
+                      transition={{ type: "spring", stiffness: 400, damping: 34 }}
+                    />
+                  )}
+                </a>
+              </li>
             ))}
-            <a 
-          href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity."
-          target="_blank"
-          rel="noopener noreferrer"
-            className="btn-primary text-xs px-5 py-2.5 flex items-center justify-center gap-2">
-              <span className="pulse-dot"></span>
-              Hire Me
-            </a>
-          </nav>
+          </ul>
 
-          {/* Mobile Hamburger */}
-          <div className="md:hidden h-11 w-11 flex items-center justify-center">
-            <button
-              onClick={() => setOpen(!open)}
-              className="text-foreground p-1"
-              aria-label="Toggle navigation"
-              aria-expanded={open}
-            >
-              {open ? <X size={22} /> : <Menu size={22} />}
-            </button>
-          </div>
-        </div>
+          <a href={contact.hireMeGmail} {...external} className="btn-primary hidden px-4 py-2.5 md:inline-flex">
+            Let's work together <ArrowUpRight size={15} aria-hidden />
+          </a>
 
-        {/* Mobile Drawer */}
+          <button
+            ref={toggleRef}
+            type="button"
+            onClick={() => setOpen(o => !o)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 text-foreground md:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
+          </button>
+        </nav>
+
         <AnimatePresence>
           {open && (
             <motion.div
+              id="mobile-menu"
+              ref={menuRef}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden mx-4 mt-2 glass rounded-2xl px-4 py-5 flex flex-col gap-2"
-              style={{
-                paddingBottom: "max(1.25rem, env(safe-area-inset-bottom))",
-              }}
+              className="border-t border-white/[0.06] md:hidden"
             >
-              {navLinks.map(l => (
-                <PillLink
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  isMobile
-                >
-                  {l.label}
-                </PillLink>
-              ))}
-              <a
-                href="https://mail.google.com/mail/?view=cm&to=tiwaribhaveshkumar@gmail.com&su=Hiring%20Inquiry&body=Hi%20Bhavesh%2C%20I%20came%20across%20your%20portfolio%20and%20would%20love%20to%20discuss%20a%20potential%20opportunity."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setOpen(false)}
-                className="btn-primary text-sm mt-1 flex items-center justify-center gap-2 w-full"
-              >
-                <span className="pulse-dot"></span>
-                Hire Me
-              </a>
+              <ul className="container-content flex flex-col gap-1 py-4">
+                {navLinks.map(l => (
+                  <li key={l.id}>
+                    <a
+                      href={`#${l.id}`}
+                      onClick={() => setOpen(false)}
+                      aria-current={active === l.id ? "location" : undefined}
+                      className={cn(
+                        "block rounded-xl px-4 py-3 text-base font-medium",
+                        active === l.id ? "bg-white/[0.05] text-foreground" : "text-muted-foreground",
+                      )}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+                <li className="pt-2">
+                  <a
+                    href={contact.hireMeGmail}
+                    {...external}
+                    onClick={() => setOpen(false)}
+                    className="btn-primary w-full"
+                  >
+                    Let's work together <ArrowUpRight size={15} aria-hidden />
+                  </a>
+                </li>
+              </ul>
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

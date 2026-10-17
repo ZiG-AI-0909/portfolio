@@ -1,31 +1,48 @@
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import SkillsSection from "@/components/SkillsSection";
+import FeaturedProducts from "@/components/FeaturedProducts";
+import ServicesSection from "@/components/ServicesSection";
+import HowIWorkSection from "@/components/HowIWorkSection";
+import MoreWorkSection from "@/components/MoreWorkSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import CaseStudySection from "@/components/CaseStudySection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ProcessSection from "@/components/ProcessSection";
-import PhilosophySection from "@/components/PhilosophySection";
+import TechStackSection from "@/components/TechStackSection";
+import ResultsSection from "@/components/ResultsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-const Index = () => (
-  <div className="min-h-screen bg-[#050a18]">
-    <Navbar />
-    <main>
-      <HeroSection />
-      <AboutSection />
-      <ExperienceSection />
-      <CaseStudySection />
-      <TestimonialsSection />
-      <SkillsSection />
-      <ProcessSection />
-      <PhilosophySection />
-      <ContactSection />
-    </main>
-    <Footer />
-  </div>
-);
+const Index = () => {
+  // The page renders after the browser's initial hash jump, so honour deep links like /#projects here.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
+
+  return (
+    <div className="min-h-screen overflow-x-clip bg-background">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
+      <Navbar />
+      <main id="main">
+        <HeroSection />
+        <AboutSection />
+        <FeaturedProducts />
+        <ServicesSection />
+        <HowIWorkSection />
+        <MoreWorkSection />
+        <ExperienceSection />
+        <TechStackSection />
+        <ResultsSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 export default Index;
