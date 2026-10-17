@@ -77,7 +77,7 @@ const products: Product[] = [
     ],
     tech: ["React", "Vite", "Node.js", "Express", "Supabase (Postgres · Auth · Storage)", "Vercel", "Render"],
     cta: { label: "Explore Sudarshan AI", href: productLinks.sudarshan.live },
-    secondary: [{ label: "GitHub", href: productLinks.sudarshan.github, icon: Github }],
+    secondary: [],
     mockup: <SudarshanMockup />,
   },
 ];

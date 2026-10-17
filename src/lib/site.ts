@@ -20,7 +20,6 @@ export const productLinks = {
   },
   sudarshan: {
     live: "https://aisudarshanpipes.vercel.app/",
-    github: "https://github.com/Sudarshan-Pipes/AI-WhatsApp-Business-Automation-Suite",
   },
 };
 
