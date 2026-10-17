@@ -176,6 +176,23 @@
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
 
+  /* B monogram with a slow neon glow breathing behind it */
+  .logo-mark {
+    @apply relative inline-flex shrink-0;
+    isolation: isolate;
+  }
+
+  .logo-mark::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    z-index: -1;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, hsl(var(--primary) / 0.6), hsl(var(--primary) / 0.15) 60%, transparent);
+    pointer-events: none;
+    animation: neon-pulse 3.2s ease-in-out infinite;
+  }
+
   .bg-grid {
     background-image:
       linear-gradient(to right, hsl(var(--foreground) / 0.04) 1px, transparent 1px),
@@ -203,6 +220,18 @@
   }
 }
 
+@keyframes neon-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
 @keyframes blink {
   0%,
   100% {
@@ -224,5 +253,12 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* Keep a soft, steady glow instead of the pulse */
+  .logo-mark::before {
+    animation: none !important;
+    opacity: 0.5;
+    transform: none;
   }
 }
