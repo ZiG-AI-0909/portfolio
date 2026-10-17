@@ -45,6 +45,14 @@
     --graphite-2: 220 9% 12%;
     --graphite-3: 220 8% 17%;
 
+    /* Animated background aurora hues */
+    --aurora-blue: 215 95% 58%;
+    --aurora-cyan: 190 95% 55%;
+    --aurora-teal: 175 85% 45%;
+    --aurora-indigo: 238 80% 62%;
+    --aurora-violet: 262 85% 64%;
+    --aurora-magenta: 285 75% 58%;
+
     --nav-height: 4.5rem;
   }
 }
@@ -202,21 +210,113 @@
 }
 
 @layer utilities {
-  .animate-drift {
-    animation: drift 28s ease-in-out infinite alternate;
-  }
-
   .animate-blink {
     animation: blink 1.2s ease-in-out infinite;
   }
 }
 
-@keyframes drift {
+/* ── Animated background ─────────────────────────────────────────── */
+.bg-floor {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40vh;
+  overflow: hidden;
+  perspective: 420px;
+  perspective-origin: 50% 0%;
+  -webkit-mask-image: linear-gradient(to top, black 15%, transparent 95%);
+  mask-image: linear-gradient(to top, black 15%, transparent 95%);
+}
+
+.bg-floor-plane {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  top: 0;
+  height: 220%;
+  transform-origin: 50% 0%;
+  transform: rotateX(62deg);
+  background-image:
+    linear-gradient(to right, var(--bg-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-line) 1px, transparent 1px);
+  background-size: var(--bg-cell) var(--bg-cell);
+  will-change: transform;
+}
+
+.bg-scan {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    hsl(var(--primary) / 0.025) 70%,
+    hsl(var(--primary) / 0.09) 97%,
+    hsl(var(--primary) / 0.35) 99.3%,
+    transparent 100%
+  );
+  will-change: transform, opacity;
+}
+
+@keyframes floor-scroll {
+  from {
+    transform: rotateX(62deg) translate3d(0, calc(var(--bg-cell) * -1), 0);
+  }
+  to {
+    transform: rotateX(62deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scan-sweep {
   0% {
-    transform: translate3d(-6%, -4%, 0) scale(1);
+    transform: translate3d(0, -140px, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
   }
   100% {
-    transform: translate3d(6%, 5%, 0) scale(1.12);
+    transform: translate3d(0, 100vh, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes aurora-drift-1 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(12vw, 8vh, 0) scale(1.15);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  to {
+    transform: translate3d(-14vw, 10vh, 0) scale(0.95);
+  }
+}
+
+@keyframes aurora-drift-3 {
+  from {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  to {
+    transform: translate3d(10vw, -12vh, 0) scale(1.12);
+  }
+}
+
+@keyframes aurora-drift-4 {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-10vw, 14vh, 0) scale(1.2);
   }
 }
 

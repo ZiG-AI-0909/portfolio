@@ -63,7 +63,6 @@ const ContactSection = () => {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="section border-t border-white/[0.05]">
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-96 bg-[radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.1),transparent_65%)]" />
       <div className="container-content relative">
         <SectionHeading
           id="contact-title"

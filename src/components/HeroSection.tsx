@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, MessageSquare } from "lucide-react";
-import HeroNetwork from "@/components/HeroNetwork";
 import { contact } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -13,15 +12,7 @@ const rise = (delay: number) => ({
 const focusAreas = ["AI applications", "WhatsApp & Discord assistants", "Business automation"];
 
 const HeroSection = () => (
-  <section id="home" aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-[var(--nav-height)]">
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-      <div className="absolute -left-1/4 -top-1/3 h-[70vh] w-[90vw] max-w-[1100px] animate-drift rounded-full bg-[radial-gradient(closest-side,hsl(var(--primary)/0.16),transparent)]" />
-      <div className="absolute -right-1/4 top-1/4 h-[60vh] w-[70vw] max-w-[900px] animate-drift rounded-full bg-[radial-gradient(closest-side,hsl(var(--accent)/0.12),transparent)] [animation-delay:-14s]" />
-      <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_75%)]" />
-      <HeroNetwork />
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
-    </div>
-
+  <section id="home" aria-labelledby="hero-title" className="relative overflow-hidden pt-[var(--nav-height)]">
     <div className="container-content grid min-h-[calc(100svh-var(--nav-height))] items-center gap-12 py-16 lg:grid-cols-[1.25fr_0.75fr] lg:py-24">
       <div>
         <motion.div {...rise(0)} className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/[0.08] px-3.5 py-1.5 text-sm text-foreground">

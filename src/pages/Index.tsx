@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import AnimatedBackground from "@/components/background/AnimatedBackground";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -20,7 +21,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-background">
+    <div className="min-h-screen overflow-x-clip">
+      <AnimatedBackground />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
@@ -28,7 +30,7 @@ const Index = () => {
         Skip to content
       </a>
       <Navbar />
-      <main id="main">
+      <main id="main" className="relative z-10">
         <HeroSection />
         <AboutSection />
         <FeaturedProducts />
@@ -40,7 +42,9 @@ const Index = () => {
         <ResultsSection />
         <ContactSection />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 };
