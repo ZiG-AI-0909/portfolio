@@ -4,12 +4,13 @@ const FRAME_MS = 130;
 
 /**
  * Animates the tab icon by cycling frames from a vertical sprite sheet.
- * Browsers other than Firefox ignore animated GIF favicons, so the frames are
- * swapped in as data URLs instead. The static /favicon-32.png in index.html
- * stays in place when motion is reduced or anything fails.
+ * index.html points at /favicon.gif, which only Firefox animates; other
+ * browsers show its first frame, so there the frames are swapped in as data
+ * URLs instead. The GIF stays in place when motion is reduced or anything fails.
  */
 export const startAnimatedFavicon = () => {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (/firefox/i.test(navigator.userAgent)) return;
 
   const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
   if (!link) return;
@@ -30,6 +31,7 @@ export const startAnimatedFavicon = () => {
     }
     if (frames.length < 2) return;
 
+    link.type = "image/png";
     let i = 0;
     window.setInterval(() => {
       i = (i + 1) % frames.length;
