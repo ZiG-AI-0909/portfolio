@@ -7,7 +7,7 @@ const Footer = () => (
     <div className="container-content grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
       <div>
         <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold text-foreground">
-          <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7" />
+          <img src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
           Bhavesh Kumar Tiwari
         </a>
         <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">

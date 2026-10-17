@@ -81,7 +81,7 @@ const Navbar = () => {
       >
         <nav aria-label="Primary" className="container-content flex h-[var(--nav-height)] items-center justify-between gap-4">
           <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-foreground">
-            <img src="/favicon.svg" alt="" width={28} height={28} className="h-7 w-7" />
+            <img src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
             Bhavesh
           </a>
 
