@@ -55,12 +55,12 @@ const HeroSection = () => (
         className="surface relative mx-auto w-full max-w-sm p-6 backdrop-blur-xl sm:p-8"
       >
         <div className="flex items-center gap-4">
-          <div className="relative h-20 w-20 shrink-0 rounded-2xl bg-gradient-to-br from-primary to-accent p-px">
+          <div className="relative h-24 w-24 shrink-0 rounded-2xl bg-gradient-to-br from-primary to-accent p-px">
             <img
               src="/User.jpeg"
               alt="Portrait of Bhavesh Kumar Tiwari"
-              width={80}
-              height={80}
+              width={96}
+              height={96}
               className="h-full w-full rounded-2xl object-cover"
             />
           </div>

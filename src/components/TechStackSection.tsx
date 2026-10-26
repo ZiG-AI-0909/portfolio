@@ -7,7 +7,7 @@ const groups = [
   {
     label: "AI",
     icon: Bot,
-    items: ["OpenAI API", "Claude AI", "NVIDIA NIM", "Prompt Engineering", "GitHub Codex"],
+    items: ["OpenAI API", "Claude AI", "Groq", "NVIDIA NIM", "Prompt Engineering", "GitHub Codex"],
   },
   {
     label: "Frontend",

@@ -1,14 +1,24 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { ArrowRight, CalendarClock, CheckCheck, FileSpreadsheet, FileText, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCheck,
+  Clock,
+  FileSpreadsheet,
+  FileText,
+  ShieldCheck,
+  Sparkles,
+  UserRound,
+  Wrench,
+} from "lucide-react";
 
 const TOTAL = 350;
 const STATIC_SENT = 214;
 
-const rfqRows = [
-  { item: "PVC pipe 110 mm", qty: "40 nos" },
-  { item: "HDPE pipe 90 mm", qty: "120 m" },
-  { item: "Bend 90° 110 mm", qty: "12 nos" },
+const boqRows = [
+  { item: "HDPE pipe 90 mm PE100", qty: "120 m", tag: "Pipe" },
+  { item: "PVC pipe 110 mm IS 4985", qty: "40 nos", tag: "Pipe" },
+  { item: "Trench excavation", qty: "85 m³", tag: "Not pipe" },
 ];
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
@@ -39,17 +49,27 @@ const useCampaignProgress = (active: boolean) => {
   return sent;
 };
 
+// Fades items in one after another the first time the mockup scrolls into view
+const appear = (delay: number) => ({
+  initial: { opacity: 0, y: 6 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { delay },
+});
+
 const SudarshanMockup = () => {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-80px" });
   const reduced = useReducedMotion();
   const sent = useCampaignProgress(inView && !reduced);
+  const delivered = Math.floor(sent * 0.94);
+  const read = Math.floor(sent * 0.71);
 
   return (
     <div
       ref={ref}
       role="img"
-      aria-label="Illustrative dashboard: a WhatsApp campaign sending from an Excel contact list, an AI reply to a customer drawn from the knowledge base, and a BOQ document converted into an RFQ list."
+      aria-label="Illustrative dashboard: a WhatsApp campaign sending from an Excel contact list with delivered and read counts and business-hours safety limits, a BOQ document turned into a GST quotation with an OCR fix and pipe detection, and a WhatsApp inbox where the AI answers from the knowledge base and hands a customer to a human."
       className="overflow-hidden rounded-2xl border border-white/[0.08] bg-graphite-1 shadow-2xl shadow-black/40"
     >
       <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] px-4 py-2.5">
@@ -73,7 +93,7 @@ const SudarshanMockup = () => {
                 <span className="h-1.5 w-1.5 animate-blink rounded-full bg-sud" /> Sending
               </span>
             </div>
-            <p className="mt-2 text-sm font-semibold text-foreground">Dealer update</p>
+            <p className="mt-2 text-sm font-semibold text-foreground">Dealer update · {"{{name}}"}</p>
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/[0.06]">
               <motion.div
                 className="h-full origin-left rounded-full bg-sud"
@@ -81,55 +101,86 @@ const SudarshanMockup = () => {
                 transition={{ duration: 0.12, ease: "linear" }}
               />
             </div>
-            <p className="mt-2 font-mono text-[11px] tabular-nums text-muted-foreground">
-              <span className="text-foreground">{sent}</span> / {TOTAL} sent
-            </p>
+            <dl className="mt-2 grid grid-cols-3 gap-2 font-mono text-[11px] tabular-nums text-muted-foreground">
+              {[
+                ["Sent", sent],
+                ["Delivered", delivered],
+                ["Read", read],
+              ].map(([label, value]) => (
+                <div key={label}>
+                  <dt className="text-[9px] uppercase tracking-wider">{label}</dt>
+                  <dd className="text-foreground">{value}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="mt-3 space-y-1.5 border-t border-white/[0.06] pt-3 text-[11px] text-muted-foreground">
               <p className="flex items-center gap-1.5">
-                <FileSpreadsheet size={12} className="text-sud" /> contacts.xlsx
+                <FileSpreadsheet size={12} className="text-sud" /> contacts.xlsx · {TOTAL} recipients
               </p>
               <p className="flex items-center gap-1.5">
-                <CalendarClock size={12} className="text-sud" /> Repeats weekly
+                <Clock size={12} className="text-sud" /> Business hours in recipient's time zone
+              </p>
+              <p className="flex items-center gap-1.5">
+                <ShieldCheck size={12} className="text-sud" /> Random pacing · daily cap · auto-pause
               </p>
             </div>
           </Card>
 
           <Card>
-            <CardLabel>Document intelligence</CardLabel>
+            <CardLabel>BOQ → Quotation</CardLabel>
             <div className="mt-2 flex items-center gap-2 text-[12px]">
               <span className="flex min-w-0 items-center gap-1 rounded-md border border-white/[0.08] bg-white/[0.03] px-2 py-1 text-foreground">
                 <FileText size={12} className="shrink-0 text-sud" />
-                <span className="truncate">BOQ.pdf</span>
+                <span className="truncate">tender_BOQ.pdf</span>
               </span>
               <ArrowRight size={13} className="shrink-0 text-muted-foreground" />
-              <span className="rounded-md bg-sud/15 px-2 py-1 font-medium text-sud">RFQ list</span>
+              <span className="rounded-md bg-sud/15 px-2 py-1 font-medium text-sud">OCR + AI</span>
             </div>
             <ul className="mt-3 divide-y divide-white/[0.05] text-[12px]">
-              {rfqRows.map((r, i) => (
-                <motion.li
-                  key={r.item}
-                  initial={{ opacity: 0, x: -6 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.15 }}
-                  className="flex justify-between gap-3 py-1.5"
-                >
+              {boqRows.map((r, i) => (
+                <motion.li key={r.item} {...appear(0.3 + i * 0.15)} className="flex items-center justify-between gap-3 py-1.5">
                   <span className="truncate text-foreground/85">{r.item}</span>
-                  <span className="shrink-0 font-mono text-muted-foreground">{r.qty}</span>
+                  <span className="flex shrink-0 items-center gap-2">
+                    <span className="font-mono text-muted-foreground">{r.qty}</span>
+                    <span
+                      className={
+                        r.tag === "Pipe"
+                          ? "rounded bg-sud/15 px-1.5 py-px text-[10px] text-sud"
+                          : "rounded bg-white/[0.06] px-1.5 py-px text-[10px] text-muted-foreground"
+                      }
+                    >
+                      {r.tag}
+                    </span>
+                  </span>
                 </motion.li>
               ))}
             </ul>
+            <motion.p
+              {...appear(0.85)}
+              className="mt-2 flex items-center gap-1.5 rounded-md bg-white/[0.03] px-2 py-1 font-mono text-[10.5px] text-muted-foreground"
+            >
+              <Wrench size={11} className="shrink-0 text-sud" />
+              <span className="line-through">45398 80</span> → <span className="text-foreground">45,398.80</span>
+              <span className="ml-auto">OCR fix logged</span>
+            </motion.p>
+            <motion.div
+              {...appear(1.05)}
+              className="mt-3 flex items-center justify-between gap-2 border-t border-white/[0.06] pt-3 text-[11px]"
+            >
+              <span className="font-mono text-foreground">SP/2026-27/0001</span>
+              <span className="text-muted-foreground">CGST + SGST · Excel · PDF</span>
+            </motion.div>
           </Card>
         </div>
 
         <Card className="flex flex-col">
-          <CardLabel>WhatsApp · customer</CardLabel>
+          <CardLabel>WhatsApp · AI inbox</CardLabel>
           <div className="mt-3 flex flex-1 flex-col justify-end gap-2.5">
             <div className="max-w-[88%] self-start rounded-xl rounded-tl-sm bg-graphite-3 px-3 py-2 text-[12.5px] leading-relaxed text-foreground/90">
               Hi, can you share the UGD pipe catalogue?
             </div>
             <div className="max-w-[92%] self-end rounded-xl rounded-tr-sm border border-success/20 bg-success/[0.12] px-3 py-2 text-[12.5px] leading-relaxed text-foreground">
-              Sure — here's our UGD pipe catalogue. Which diameters do you need? I'll pass the details to our sales team.
+              Sure! Here's our UGD pipe catalogue. Which diameters do you need?
               <span className="mt-2 flex items-center gap-1.5 rounded-md bg-black/25 px-2 py-1 text-[11px] text-foreground/80">
                 <FileText size={12} /> UGD_catalogue.pdf
               </span>
@@ -138,6 +189,18 @@ const SudarshanMockup = () => {
                 <CheckCheck size={12} className="text-primary" />
               </span>
             </div>
+            <motion.div
+              {...appear(0.6)}
+              className="max-w-[88%] self-start rounded-xl rounded-tl-sm bg-graphite-3 px-3 py-2 text-[12.5px] leading-relaxed text-foreground/90"
+            >
+              110 mm, 600 m. Can a manager call me?
+            </motion.div>
+            <motion.div
+              {...appear(1)}
+              className="flex items-center gap-1.5 self-center rounded-full border border-sud/25 bg-sud/10 px-2.5 py-1 text-[10.5px] text-sud"
+            >
+              <UserRound size={11} /> Handed to sales team · AI paused
+            </motion.div>
           </div>
         </Card>
       </div>

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
-import { Hash, Lock, Settings2, Volume2 } from "lucide-react";
+import { Hash, Lock, Music2, ScrollText, Settings2, Volume2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// 0: idle · 1: member asks · 2: ZiGBoT typing · 3: ZiGBoT replies
-const PHASE_DURATIONS = [700, 1300, 1800, 4200];
+// 0: idle · 1: member asks · 2: ZiGBoT typing · 3: ZiGBoT replies (then the next scene)
+const PHASE_DURATIONS = [700, 1300, 1600, 4200];
 
 const Avatar = ({ label, className }: { label: string; className: string }) => (
   <span className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold", className)}>
@@ -50,9 +50,69 @@ const channels = [
 ];
 
 const settings = [
-  { label: "Persona", value: "Savage" },
+  { label: "Persona", value: "Savage · Spicy" },
+  { label: "Language", value: "Hinglish" },
   { label: "Gentle roles", value: "@mods" },
   { label: "Chat channel", value: "#zig-chat" },
+];
+
+const ActionButton = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <span className={cn("rounded px-2 py-1 text-[11px] font-medium", className)}>{children}</span>
+);
+
+// Each scene: a member asks, ZiGBoT works out whether it's chat or an action, then replies
+const scenes: { name: string; avatar: string; avatarClass: string; ask: React.ReactNode; reply: React.ReactNode }[] = [
+  {
+    name: "Riya",
+    avatar: "R",
+    avatarClass: "bg-primary/20 text-primary",
+    ask: "exam tomorrow and I haven't opened the book",
+    reply: "Bold strategy, Sharma ji ka beta is on chapter 9 already. 25 minutes on chapter one, then come back and brag. I'll be right here.",
+  },
+  {
+    name: "Kabir",
+    avatar: "K",
+    avatarClass: "bg-success/20 text-success",
+    ask: "play Believer",
+    reply: (
+      <>
+        Now playing in <span className="text-foreground">🔊 music</span>
+        <span className="mt-1.5 flex items-center gap-2 rounded-md border-l-2 border-zig bg-black/25 px-2.5 py-2">
+          <Music2 size={13} className="shrink-0 text-zig" />
+          <span className="truncate text-foreground">Believer · Imagine Dragons</span>
+        </span>
+        <span className="mt-1.5 flex flex-wrap gap-1.5">
+          {["⏸ Pause", "⏭ Skip", "⏹ Stop", "🔁 Loop"].map(b => (
+            <ActionButton key={b} className="bg-zig-3 text-foreground/85">
+              {b}
+            </ActionButton>
+          ))}
+        </span>
+      </>
+    ),
+  },
+  {
+    name: "Mod Neha",
+    avatar: "N",
+    avatarClass: "bg-accent/25 text-accent",
+    ask: (
+      <>
+        warn <span className="text-zig">@spammer</span> for flooding #general
+      </>
+    ),
+    reply: (
+      <>
+        Warn <span className="text-zig">@spammer</span> for “flooding #general”? Your permissions check out.
+        <span className="mt-1.5 flex gap-1.5">
+          <ActionButton className="bg-success/80 text-zig-1">Confirm</ActionButton>
+          <ActionButton className="bg-zig-3 text-foreground/85">Cancel</ActionButton>
+        </span>
+        <span className="mt-1 flex items-center gap-1 text-[10px] text-muted-foreground">
+          <ScrollText size={10} /> logged to audit history
+        </span>
+      </>
+    ),
+  },
 ];
 
 const ZigbotMockup = () => {
@@ -60,10 +120,12 @@ const ZigbotMockup = () => {
   const inView = useInView(ref, { margin: "-80px" });
   const reduced = useReducedMotion();
   const [phase, setPhase] = useState(3);
+  const [sceneIndex, setSceneIndex] = useState(0);
 
   useEffect(() => {
     if (reduced || !inView) {
       setPhase(3);
+      setSceneIndex(0);
       return;
     }
     setPhase(0);
@@ -72,6 +134,7 @@ const ZigbotMockup = () => {
     const tick = () => {
       timer = setTimeout(() => {
         current = (current + 1) % PHASE_DURATIONS.length;
+        if (current === 0) setSceneIndex(s => (s + 1) % scenes.length);
         setPhase(current);
         tick();
       }, PHASE_DURATIONS[current]);
@@ -80,11 +143,13 @@ const ZigbotMockup = () => {
     return () => clearTimeout(timer);
   }, [inView, reduced]);
 
+  const scene = scenes[sceneIndex];
+
   return (
     <div
       ref={ref}
       role="img"
-      aria-label="Illustrative Discord-style chat: a member asks ZiGBoT for help before an exam, ZiGBoT types and replies, and a server settings panel shows persona, gentle roles and chat channel."
+      aria-label="Illustrative Discord-style chat cycling through three requests: a member asks ZiGBoT for help before an exam and gets a light roast with advice, another asks it to play a song and it shows a now-playing card with controls, and a moderator asks it to warn a spammer and it asks for confirmation. A server settings panel shows persona, language, gentle roles and chat channel."
       className="relative"
     >
       <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-zig-1 shadow-2xl shadow-black/40">
@@ -133,8 +198,12 @@ const ZigbotMockup = () => {
 
               <AnimatePresence initial={false}>
                 {phase >= 1 && (
-                  <Message key="ask" name="Riya" avatar={<Avatar label="R" className="bg-primary/20 text-primary" />}>
-                    <span className="text-zig">@ZiGBoT</span> exam tomorrow and I haven't opened the book
+                  <Message
+                    key={`ask-${sceneIndex}`}
+                    name={scene.name}
+                    avatar={<Avatar label={scene.avatar} className={scene.avatarClass} />}
+                  >
+                    <span className="text-zig">@ZiGBoT</span> {scene.ask}
                   </Message>
                 )}
                 {phase === 2 && (
@@ -159,12 +228,12 @@ const ZigbotMockup = () => {
                 )}
                 {phase === 3 && (
                   <Message
-                    key="reply"
+                    key={`reply-${sceneIndex}`}
                     name="ZiGBoT"
                     bot
                     avatar={<Avatar label="Z" className="bg-zig text-zig-1" />}
                   >
-                    Bold strategy. 25 minutes on chapter one, then come back and brag. I'll be right here.
+                    {scene.reply}
                   </Message>
                 )}
               </AnimatePresence>
