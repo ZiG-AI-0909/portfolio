@@ -66,9 +66,16 @@ describe("portfolio page", () => {
   it("keeps every existing project in More work", () => {
     renderPage();
     const moreWork = document.getElementById("more-work")!;
-    for (const company of ["AI Agent Store", "JustHR", "Karnataka Bangle Store", "EdiGlobe", "Sudarshan Pipes"]) {
+    for (const company of ["AI Agent Store", "JustHR", "EdiGlobe", "Sudarshan Pipes"]) {
       expect(within(moreWork).getAllByText(company).length).toBeGreaterThan(0);
     }
+  });
+
+  it("features the Karnataka Bangle Store, which moved up from More work", () => {
+    renderPage();
+    const featured = document.getElementById("bangles")!;
+    expect(within(featured).getByRole("heading", { name: "Karnataka Bangle Store" })).toBeInTheDocument();
+    expect(within(featured).getByRole("link", { name: /visit the store/i })).toHaveAttribute("href", "https://karnatakabanglestore.com/");
   });
 });
 

@@ -21,9 +21,9 @@ Bhavesh Kumar Tiwari designs and ships AI-powered applications end to end: LLM-b
 ## Skills
 
 - AI & LLMs: OpenAI API, Claude AI, Groq, NVIDIA NIM, Llama / DeepSeek, prompt engineering, knowledge-base grounding, OCR and vision models
-- Automation & Integrations: WhatsApp Cloud API, whatsapp-web.js / Baileys, discord.js, Razorpay, Resend, lead routing pipelines, bulk outreach
-- Backend: Node.js, Express, Socket.IO, Supabase (Postgres, Auth, Storage), MongoDB
-- Frontend: React, TypeScript, Next.js, Vite, Tailwind CSS, Framer Motion
+- Automation & Integrations: WhatsApp Cloud API, whatsapp-web.js / Baileys, discord.js, Razorpay, Resend, Google OAuth, Cloudinary, lead routing pipelines, bulk outreach
+- Backend: Node.js, Express, Socket.IO, Supabase (Postgres, Auth, Storage), PostgreSQL Row-Level Security and RPC, MongoDB
+- Frontend: React, TypeScript, Next.js, Vite, Tailwind CSS, shadcn/ui, i18next, Framer Motion
 - Tools: Vercel, Render, GitHub, GitHub Codex, Google Analytics, Canva, CRM management, SEO, Meesho, Etsy
 
 ## Solutions I build
@@ -57,11 +57,12 @@ Need something not listed? Custom AI and automation solutions are built to order
 
 - [ZiGBoT AI](https://aibhaveshportfolio.vercel.app/projects/zigbot): An AI Discord bot and web dashboard that replaces separate moderation, music and chatbot bots with one bot that has a personality. It offers per-server personalities (Gentle, Savage, Neutral or a custom persona, in English or Hinglish), user-controlled memory with 30-day expiry, a 30-day reputation system, plain-language moderation checked against real Discord permissions, Premium music and Hindi/English voice chat, and safety rules enforced in code. Built with Node.js, discord.js, Groq (NVIDIA fallback), MongoDB, Next.js, Supabase and Razorpay; 627 automated tests. Live: https://zigbotai.vercel.app
 
+- [Karnataka Bangle Store](https://aibhaveshportfolio.vercel.app/projects/karnataka-bangle-store): A full-stack, mobile-first e-commerce platform for a bangle retailer, serving retail (B2C) and wholesale (B2B) customers, built single-handedly (requirements, UI/UX, frontend, database schema, security policies, deployment). It has a size × colour selection board, stock-aware ordering with urgency badges, a UPI QR payment flow with UTR capture and proof upload to private storage via signed URLs, email and Google sign-in, a 10-language interface with live LibreTranslate translation, and an admin console with B2B/B2C sales analytics and Excel export. Built with React 18, TypeScript, Vite, Tailwind CSS, shadcn/ui, Supabase (Postgres, Auth, Storage, RPC, Row-Level Security), TanStack Query, Zod, i18next, Recharts, SheetJS and Cloudinary on Vercel: 29 routes, 17 tables, 16 SQL migrations. Earlier, the same business was taken online with 50+ SEO listings on Meesho and Etsy and a 24/7 WhatsApp AI support chatbot. Live: https://karnatakabanglestore.com/ · Code: https://github.com/BanglesAffairsOfficial/KarnatakaBanglesStore
+
 ## Other work
 
 - AI Automation Workflow Suite, AI Agent Store (Sep 2025 – present): 15+ automation workflows, 40% operations reduction, 60% team adoption. https://www.aiagentstore.io/
 - WhatsApp Lead Automation System, JustHR (Jul–Sep 2025): OpenAI-powered WhatsApp chatbot handling 100+ leads per day, bulk outreach to 300–500 contacts per campaign, under-15-minute lead routing, 3 hours saved daily.
-- Karnataka Bangle Store, offline to online (Nov 2025 – Feb 2026): 50+ SEO listings on Meesho and Etsy and a 24/7 WhatsApp AI support chatbot. https://karnatakabanglestore.com/
 - AI-assisted UGD pipe product catalogue for Sudarshan Pipes: an 8-page catalogue aligned to IS 15328 and IS 16098, later reused as the WhatsApp assistant's knowledge base. https://aibhaveshportfolio.vercel.app/UGD_catalogue.pdf
 
 ## Contact

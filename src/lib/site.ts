@@ -37,6 +37,10 @@ export const productLinks = {
   sudarshan: {
     live: "https://aisudarshanpipes.vercel.app/",
   },
+  bangles: {
+    live: "https://karnatakabanglestore.com/",
+    github: "https://github.com/BanglesAffairsOfficial/KarnatakaBanglesStore",
+  },
 };
 
 export const navLinks = [

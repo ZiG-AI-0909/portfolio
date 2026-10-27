@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import { Github, MessagesSquare, PlayCircle } from "lucide-react";
 import ZigbotMockup from "@/components/mockups/ZigbotMockup";
 import SudarshanMockup from "@/components/mockups/SudarshanMockup";
+import BangleStoreMockup from "@/components/mockups/BangleStoreMockup";
 import { isFilled, productLinks } from "@/lib/site";
 
 export interface Product {
@@ -284,6 +285,103 @@ export const products: Product[] = [
       { label: "Add to Discord", href: productLinks.zigbot.discord, icon: MessagesSquare },
     ],
     mockup: <ZigbotMockup />,
+  },
+  {
+    id: "bangles",
+    slug: "karnataka-bangle-store",
+    index: "03",
+    name: "Karnataka Bangle Store",
+    kind: "Full-stack B2C + B2B e-commerce platform",
+    accentVar: "--kbs",
+    problem:
+      "A traditional bangle retailer sold only offline, with no way for retail or wholesale buyers to browse stock, order, pay or track orders online.",
+    summary: (
+      <>
+        A mobile-first store for both retail (B2C) and wholesale (B2B) customers, which I built on my own: requirements,
+        UI/UX, frontend, database schema, security policies and deployment. It has a 10-language interface, Google
+        sign-in, a UPI QR payment flow with proof upload, stock-aware ordering and an admin console with analytics and
+        Excel export.
+      </>
+    ),
+    overview:
+      "Karnataka Bangle Store is a full-stack, mobile-first e-commerce platform for a bangle retailer, serving both retail (B2C) and wholesale (B2B) customers, built single-handedly by Bhavesh Kumar Tiwari. It runs on React 18, TypeScript and Vite with a Supabase backend (PostgreSQL, Auth, Storage, RPC and Row-Level Security) on Vercel, and includes a 10-language UI, Google sign-in, a UPI QR payment flow with proof upload, stock-aware ordering and an admin console with analytics and Excel export.",
+    features: [
+      "Size × colour selection board: pick quantities for every combination with a live total",
+      "Stock-aware ordering with urgency badges (out of stock, last few left, limited) and stock decremented in the database",
+      "UPI QR payment with transaction ID (UTR) capture and payment-proof upload to private storage, served through signed URLs",
+      "Email and Google sign-in with verification and password reset, plus a wholesale (B2B) sign-up path with business proof",
+      "10-language interface (English, Hindi, Kannada, Tamil, Telugu, Malayalam, Marathi, Gujarati, Bengali, Punjabi) with live machine translation",
+      "Admin console: products, categories, B2B requests, order verification, hero slides, video reels and broadcasts to users",
+      "Sales dashboard comparing B2B and B2C orders, with Excel export of all orders, a date range or a month",
+      "Row-Level Security on every table, with admin access checked by a Postgres has_role() function",
+    ],
+    tech: ["React 18", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase (Postgres · Auth · Storage · RLS)", "TanStack Query", "Zod", "i18next", "Recharts", "SheetJS", "Cloudinary", "Vercel"],
+    results: [
+      "Live at karnatakabanglestore.com on a custom domain",
+      "29 routes, 17 database tables and 16 versioned SQL migrations, built single-handedly",
+      "Retail and wholesale customers served from one store, in 10 languages",
+      "TODO: business impact, e.g. orders per month, wholesale customers onboarded, share of sales now online",
+    ],
+    github: productLinks.bangles.github,
+    video: "TODO: link to a demo video or GIF of the store and admin console",
+    details: [
+      {
+        title: "Storefront and checkout",
+        points: [
+          "Home page with a hero carousel, featured products and video reels; shop with category and occasion filters.",
+          "Product pages with a size × colour quantity board, cart and wishlist; the cart is saved in localStorage.",
+          "Checkout leads to a UPI QR payment page where the customer enters the UTR and uploads a screenshot.",
+          "Order history and order detail pages, with cancellation of a whole order or a single item.",
+        ],
+      },
+      {
+        title: "Accounts and auth",
+        points: [
+          "Sign-up and login with email and password or Google OAuth, with email verification and password reset.",
+          "A B2B option at sign-up: wholesale buyers upload business proof, which admins review.",
+          "Profile, saved delivery addresses and an inbox for notifications and broadcasts.",
+          "Admin routes are protected and checked against the user's role in the database.",
+        ],
+      },
+      {
+        title: "Admin console",
+        points: [
+          "Manage products, categories, colours and B2B requests; upload images to Supabase Storage and reels to Cloudinary.",
+          "Sales dashboard (Recharts) comparing B2B and B2C orders.",
+          "Order management with payment verification and Excel export (all orders, a date range or a month) via SheetJS.",
+          "Edit hero slides and site settings, and send broadcast announcements to users.",
+        ],
+      },
+      {
+        title: "Database and security",
+        points: [
+          "17 tables in Supabase Postgres, including products, orders, order items, payments, invoices, profiles, roles and B2B requests.",
+          "A read-only bangles_public view for visitors and an app_role enum for admin and user roles.",
+          "Row-Level Security on every table; Postgres functions for has_role, decrement_stock, cancel_order, cancel_order_item and update_b2b_proof.",
+          "Public URLs for catalogue images; signed URLs for private files such as payment proofs and invoices.",
+          "16 versioned SQL migrations covering the schema, roles, seed data, stock, secondary images, B2B requests and the public view.",
+        ],
+      },
+      {
+        title: "Languages",
+        points: [
+          "i18next with 10 locales: English, Hindi, Kannada, Tamil, Telugu, Malayalam, Marathi, Gujarati, Bengali and Punjabi.",
+          "Dynamic text is translated live through the LibreTranslate API, with an in-memory cache and a fallback endpoint.",
+        ],
+      },
+      {
+        title: "Forms, UX and SEO",
+        points: [
+          "React Hook Form with Zod validation; drafts saved locally and an unsaved-changes guard before leaving a page.",
+          "Urgency badges, toasts, carousels and drawers built on shadcn/ui and Radix UI.",
+          "SEO metadata with Open Graph, Twitter Cards and JSON-LD structured data.",
+          "Deployed on Vercel with SPA rewrites, a custom domain and environment-based configuration.",
+        ],
+      },
+    ],
+    cta: { label: "Visit the store", href: productLinks.bangles.live },
+    secondary: [],
+    mockup: <BangleStoreMockup />,
   },
 ];
 

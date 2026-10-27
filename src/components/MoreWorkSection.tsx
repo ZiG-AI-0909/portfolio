@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { ArrowUpRight, ExternalLink, FileText, Github, Globe } from "lucide-react";
+import { ArrowUpRight, ExternalLink, FileText, Globe } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { external } from "@/lib/site";
@@ -50,25 +50,6 @@ const projects: Project[] = [
     ],
     stack: ["OpenAI API", "whatsapp-web.js", "Node.js"],
     links: [],
-  },
-  {
-    name: "Bangle Store (Offline→Online)",
-    company: "Karnataka Bangle Store",
-    type: "E-commerce & AI",
-    problem: "Traditional bangle retailer operating offline with zero digital presence or streamlined ordering.",
-    solution:
-      "Took business fully online with 50+ optimized product listings on Meesho and Etsy, plus 24/7 WhatsApp AI chatbot for customer support.",
-    result: "Live multi-platform storefront with 50+ SEO listings, AI-powered customer support, and measurable online sales growth.",
-    metrics: [
-      { value: "50+", label: "SEO listings" },
-      { value: "24/7", label: "AI support" },
-      { value: "Multi", label: "Platforms" },
-    ],
-    stack: ["OpenAI API", "whatsapp-web.js", "Meesho", "Etsy", "SEO", "Canva", "Claude AI", "GitHub Codex"],
-    links: [
-      { label: "Live Store", href: "https://karnatakabanglestore.com/", icon: ExternalLink },
-      { label: "GitHub", href: "https://github.com/BanglesAffairsOfficial/KarnatakaBanglesStore", icon: Github },
-    ],
   },
   {
     name: "Sales Pipeline & CRM System",

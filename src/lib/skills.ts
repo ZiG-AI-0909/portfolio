@@ -6,15 +6,15 @@ export const skillGroups = [
   },
   {
     label: "Automation & Integrations",
-    items: ["WhatsApp Cloud API", "whatsapp-web.js / Baileys", "discord.js", "Razorpay", "Resend", "Lead Routing Pipelines", "Bulk Outreach"],
+    items: ["WhatsApp Cloud API", "whatsapp-web.js / Baileys", "discord.js", "Razorpay", "Resend", "Google OAuth", "Cloudinary", "Lead Routing Pipelines", "Bulk Outreach"],
   },
   {
     label: "Backend",
-    items: ["Node.js", "Express", "Socket.IO", "Supabase (Postgres · Auth · Storage)", "MongoDB"],
+    items: ["Node.js", "Express", "Socket.IO", "Supabase (Postgres · Auth · Storage)", "PostgreSQL RLS & RPC", "MongoDB"],
   },
   {
     label: "Frontend",
-    items: ["React", "TypeScript", "Next.js", "Vite", "Tailwind CSS", "Framer Motion"],
+    items: ["React", "TypeScript", "Next.js", "Vite", "Tailwind CSS", "shadcn/ui", "i18next", "Framer Motion"],
   },
   {
     label: "Tools",

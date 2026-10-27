@@ -37,6 +37,7 @@ export default {
           3: token("zig-surface-3"),
         },
         sud: token("sud"),
+        kbs: token("kbs"),
         graphite: { 1: token("graphite-1"), 2: token("graphite-2"), 3: token("graphite-3") },
       },
       borderRadius: {

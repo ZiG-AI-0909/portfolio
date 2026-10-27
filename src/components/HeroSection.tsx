@@ -72,14 +72,18 @@ const HeroSection = () => (
           ))}
         </ul>
 
-        <div className="mt-6 grid grid-cols-2 gap-3 border-t border-white/[0.07] pt-6">
-          <a href="#sudarshan" className="rounded-xl border border-sud/25 bg-sud/[0.06] px-3 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-sud/[0.12]">
+        <div className="mt-6 grid grid-cols-3 gap-2 border-t border-white/[0.07] pt-6">
+          <a href="#sudarshan" className="rounded-xl border border-sud/25 bg-sud/[0.06] px-2.5 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-sud/[0.12]">
             <span className="block font-mono text-[10px] uppercase tracking-widest text-sud">Product</span>
             Sudarshan AI
           </a>
-          <a href="#zigbot" className="rounded-xl border border-zig/25 bg-zig/[0.06] px-3 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-zig/[0.12]">
+          <a href="#zigbot" className="rounded-xl border border-zig/25 bg-zig/[0.06] px-2.5 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-zig/[0.12]">
             <span className="block font-mono text-[10px] uppercase tracking-widest text-zig">Product</span>
             ZiGBoT AI
+          </a>
+          <a href="#bangles" className="rounded-xl border border-kbs/25 bg-kbs/[0.06] px-2.5 py-2.5 text-xs font-medium text-foreground transition-colors hover:bg-kbs/[0.12]">
+            <span className="block font-mono text-[10px] uppercase tracking-widest text-kbs">Product</span>
+            Bangle Store
           </a>
         </div>
       </aside>

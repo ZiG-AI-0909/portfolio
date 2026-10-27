@@ -54,6 +54,7 @@ const person = {
 const applicationCategory: Record<string, string> = {
   zigbot: "CommunicationApplication",
   "sudarshan-pipes-ai-assistant": "BusinessApplication",
+  "karnataka-bangle-store": "ShoppingApplication",
 };
 
 const softwareApplication = (p: Product) => ({

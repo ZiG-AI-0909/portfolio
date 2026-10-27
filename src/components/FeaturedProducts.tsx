@@ -155,8 +155,8 @@ const FeaturedProducts = () => (
       <SectionHeading
         id="projects-title"
         label="Featured products"
-        title="Two AI products, built end to end"
-        lead="An AI Discord bot with its own management dashboard, and a multi-tenant WhatsApp automation platform for a manufacturing business."
+        title="Three products, built end to end"
+        lead="A multi-tenant WhatsApp automation platform for a manufacturing business, an AI Discord bot with its own management dashboard, and a 10-language e-commerce store for retail and wholesale buyers."
       />
       <div className="space-y-10 sm:space-y-14">
         {products.map((p, i) => (
