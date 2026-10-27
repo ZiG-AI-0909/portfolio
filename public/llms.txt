@@ -26,6 +26,31 @@ Bhavesh Kumar Tiwari designs and ships AI-powered applications end to end: LLM-b
 - Frontend: React, TypeScript, Next.js, Vite, Tailwind CSS, Framer Motion
 - Tools: Vercel, Render, GitHub, GitHub Codex, Google Analytics, Canva, CRM management, SEO, Meesho, Etsy
 
+## Solutions I build
+
+AI agents and automation systems for sales, support, operations and HR, built end to end from idea to deployment. Items marked (built) are already running in a real project.
+
+### AI Solutions
+
+- AI Agents: conversational AI agent (built: ZiGBoT AI); sales / SDR agent that researches prospects, writes personalised outreach and books meetings; customer service agent that handles orders, refunds and bookings via APIs; internal ops agent for leave requests and sales lookups from Slack or WhatsApp; multi-agent research → write → review workflows for reports and proposals
+- Knowledge AI (RAG): AI support / chat assistant on WhatsApp grounded in company documents (built: Sudarshan Pipes AI Assistant); company knowledge assistant answering from SOPs, policies and manuals with sources; sales enablement bot for pricing and product fit; contract Q&A for clauses, renewal dates and risks
+- Document AI: invoice, KYC and form data extraction to Sheets or ERP; contract review against a checklist; long report summarisation
+- Voice AI: AI calling agent in Hindi and English for bookings, lead follow-up and payment reminders; sales call transcription, scoring and insights
+- Vision AI: product defect detection from photos; shelf and stock counting for retail
+- Data AI: chat with your data (plain-English questions to SQL and charts); sales forecasting and churn prediction
+- Content AI: product descriptions at scale; ad copy and creative variants
+
+### Business Automation
+
+- Sales & Leads: lead capture to CRM with instant WhatsApp reply; AI lead qualification and scoring; automated follow-up sequences; quotation PDF generator (built: Sudarshan Pipes AI Assistant)
+- Customer Support: order status bot; complaint ticketing on WhatsApp
+- Operations: invoice extraction to Sheets / Tally; low-stock WhatsApp alerts; automated daily reports
+- HR: AI resume screening and shortlisting; interview scheduling; employee onboarding
+- Marketing: content repurposing across platforms; AI Google review responder; personalised WhatsApp broadcasts (built: Sudarshan Pipes AI Assistant)
+- Finance: overdue payment reminders with payment links; expense categorisation from bank statements
+
+Need something not listed? Custom AI and automation solutions are built to order: https://aibhaveshportfolio.vercel.app/#contact
+
 ## Featured projects
 
 - [Sudarshan Pipes AI Assistant](https://aibhaveshportfolio.vercel.app/projects/sudarshan-pipes-ai-assistant): A multi-tenant WhatsApp business automation suite built for Sudarshan Pipes (SEPL), a PVC and HDPE pipe manufacturer in Bengaluru. It runs bulk WhatsApp campaigns from Excel with pacing, caps, business-hours sending and automatic safety stops; an AI inbox that answers from the company knowledge base with Hinglish-aware opt-outs and human handoff; OCR and LLM extraction of tender BOQs into GST quotations; AI tools for sales staff; and vendor KYC and staff registration forms. Built with React 19, Vite, Node.js, Express, Socket.IO, Supabase, Baileys, the WhatsApp Cloud API and NVIDIA-hosted models. Live: https://aisudarshanpipes.vercel.app/

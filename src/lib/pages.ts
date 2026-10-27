@@ -1,5 +1,6 @@
 import { products, type Product } from "@/lib/products";
 import { skillGroups } from "@/lib/skills";
+import { solutionTabs } from "@/lib/solutions";
 import { contact, isFilled, profile, siteUrl } from "@/lib/site";
 
 export interface PageMeta {
@@ -28,8 +29,16 @@ const person = {
     "Chatbot development",
     "Workflow automation",
     "Large language models",
+    ...solutionTabs[0].groups.map(g => g.name),
     ...skillGroups.flatMap(g => g.items),
   ],
+  // Category names only, to keep the schema concise; llms.txt lists every solution.
+  makesOffer: solutionTabs.flatMap(tab =>
+    tab.groups.map(g => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: tab.id === "automation" ? `${g.name} automation` : g.name },
+    })),
+  ),
   email: `mailto:${contact.email}`,
   url: siteUrl,
   image: `${siteUrl}/User.jpeg`,

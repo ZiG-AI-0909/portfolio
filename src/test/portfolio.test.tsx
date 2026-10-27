@@ -30,7 +30,7 @@ describe("portfolio page", () => {
       "home",
       "about",
       "projects",
-      "services",
+      "solutions",
       "process",
       "more-work",
       "experience",
