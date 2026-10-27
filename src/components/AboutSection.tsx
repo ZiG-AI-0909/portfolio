@@ -1,6 +1,7 @@
 import { Bot, ShoppingBag, TrendingUp, Layers } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { profile } from "@/lib/site";
 
 const pillars = [
   {
@@ -39,17 +40,15 @@ const AboutSection = () => (
           }
           className="mb-8 sm:mb-8"
         />
-        <Reveal className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
           <p>
-            I have a BBA in business and a track record of shipped AI work: WhatsApp automation handling 100+ leads per
-            day, bulk outreach reaching 300–500 contacts per campaign, and a live e-commerce store on Meesho and Etsy.
+            I'm Bhavesh Kumar Tiwari, an AI automation engineer in Bengaluru with a BBA and a record of shipped AI work. I
+            build AI agents, WhatsApp and Discord chatbots, and automation workflows on LLM APIs, Node.js and React, like
+            ZiGBoT AI and the Sudarshan Pipes AI Assistant. I'm looking for roles as an{" "}
+            <strong className="font-medium text-foreground">{profile.targetRoles.slice(0, -1).join(", ")}</strong> or in{" "}
+            <strong className="font-medium text-foreground">{profile.targetRoles[profile.targetRoles.length - 1]}</strong>.
           </p>
-          <p>
-            I automate manual workflows with the OpenAI API, whatsapp-web.js and custom integrations, then measure the
-            impact in operations reduced, lead-routing speed and revenue growth — from problem definition to deployed
-            system and weekly analytics.
-          </p>
-        </Reveal>
+        </div>
       </div>
 
       <Stagger className="grid content-start gap-4 sm:grid-cols-2">

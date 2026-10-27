@@ -16,11 +16,11 @@ const renderPage = () =>
 afterEach(() => vi.restoreAllMocks());
 
 describe("portfolio page", () => {
-  it("has exactly one h1 with the new headline", () => {
+  it("has exactly one h1 with my name", () => {
     renderPage();
     const h1s = screen.getAllByRole("heading", { level: 1 });
     expect(h1s).toHaveLength(1);
-    expect(h1s[0]).toHaveTextContent("Building Intelligent Systems for the Future.");
+    expect(h1s[0]).toHaveTextContent("Bhavesh Kumar Tiwari");
   });
 
   it("renders sections in the agreed order", () => {

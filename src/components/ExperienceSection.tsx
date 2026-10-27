@@ -1,12 +1,38 @@
+import type { LucideIcon } from "lucide-react";
 import { Briefcase, Zap, ShoppingBag, TrendingUp, Building2 } from "lucide-react";
 import SectionHeading from "@/components/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { isFilled } from "@/lib/site";
 
-const experiences = [
+interface Experience {
+  icon: LucideIcon;
+  title: string;
+  company: string;
+  /** e.g. "Client work", "Freelance", "Internship" */
+  type?: string;
+  period: string;
+  impact: string;
+  metrics: string[];
+  bullets: string[];
+}
+
+// Newest first. An entry whose title still starts with "TODO" is a template and isn't rendered.
+const experiences: Experience[] = [
+  {
+    icon: Briefcase,
+    title: "TODO: role title for your next client or freelance project",
+    company: "TODO: client name",
+    type: "Freelance",
+    period: "TODO: Mon YYYY – Mon YYYY",
+    impact: "TODO: one-sentence outcome for the client",
+    metrics: ["TODO: metric"],
+    bullets: ["TODO: what you built and the result"],
+  },
   {
     icon: Building2,
     title: "AI Marketing Agents Engineer",
     company: "Sudarshan Pipes",
+    type: "Client work",
     period: "Mar 2026 – Present",
     impact: "Building AI-powered WhatsApp business automation and marketing agents for a pipe manufacturing company.",
     metrics: ["Knowledge-base AI replies", "Auto scheduled campaigns"],
@@ -48,6 +74,7 @@ const experiences = [
     icon: Zap,
     title: "AI Automation & Marketing Intern",
     company: "JustHR",
+    type: "Internship",
     period: "Jul–Sep 2025",
     impact: "Deployed WhatsApp chatbot and bulk outreach handling 100+ leads daily.",
     metrics: ["100+ leads/day", "300–500 outreach/campaign", "<15min routing"],
@@ -62,6 +89,7 @@ const experiences = [
     icon: TrendingUp,
     title: "Inside Sales Intern",
     company: "EdiGlobe",
+    type: "Internship",
     period: "Sep–Nov 2024",
     impact: "Managed sales pipeline and CRM systems for B2B inside sales operations.",
     metrics: ["20+ accounts", "50+ CRM records", "Weekly reporting"],
@@ -79,7 +107,7 @@ const ExperienceSection = () => (
       <SectionHeading id="experience-title" label="Experience" title="Timeline of product impact and delivery" />
 
       <ol className="relative space-y-6 sm:border-l sm:border-white/[0.08] sm:pl-10">
-        {experiences.map(exp => (
+        {experiences.filter(exp => isFilled(exp.title)).map(exp => (
           <li key={`${exp.company}-${exp.title}`} className="relative">
             <span
               aria-hidden
@@ -92,6 +120,11 @@ const ExperienceSection = () => (
                     <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                       <exp.icon size={15} className="text-primary" aria-hidden />
                       {exp.company}
+                      {exp.type && (
+                        <span className="rounded-full border border-white/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-foreground/80">
+                          {exp.type}
+                        </span>
+                      )}
                     </p>
                     <h3 className="mt-2 text-xl font-semibold text-foreground">{exp.title}</h3>
                     <p className="mt-1 font-mono text-xs text-muted-foreground">{exp.period}</p>

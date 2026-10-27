@@ -1,0 +1,48 @@
+# Bhavesh Kumar Tiwari
+
+> AI Automation Engineer in Bengaluru, India, building AI agents, WhatsApp and Discord chatbots, and business automation. Creator of ZiGBoT AI and the Sudarshan Pipes AI Assistant. Open to work: full-time, freelance and remote.
+
+Bhavesh Kumar Tiwari designs and ships AI-powered applications end to end: LLM-backed agents and chatbots, automation workflows, and the web dashboards around them. He holds a BBA and pairs engineering with a business focus, measuring each system by hours saved, response time and reach.
+
+## Target roles
+
+- AI Automation Engineer
+- AI Agent Developer
+- Chatbot Developer
+- Junior AI Engineer
+- Workflow Automation
+
+## Availability
+
+- Open to full-time, freelance, contract and remote work
+- Available to join immediately
+- Based in Bengaluru, Karnataka, India
+
+## Skills
+
+- AI & LLMs: OpenAI API, Claude AI, Groq, NVIDIA NIM, Llama / DeepSeek, prompt engineering, knowledge-base grounding, OCR and vision models
+- Automation & Integrations: WhatsApp Cloud API, whatsapp-web.js / Baileys, discord.js, Razorpay, Resend, lead routing pipelines, bulk outreach
+- Backend: Node.js, Express, Socket.IO, Supabase (Postgres, Auth, Storage), MongoDB
+- Frontend: React, TypeScript, Next.js, Vite, Tailwind CSS, Framer Motion
+- Tools: Vercel, Render, GitHub, GitHub Codex, Google Analytics, Canva, CRM management, SEO, Meesho, Etsy
+
+## Featured projects
+
+- [Sudarshan Pipes AI Assistant](https://aibhaveshportfolio.vercel.app/projects/sudarshan-pipes-ai-assistant): A multi-tenant WhatsApp business automation suite built for Sudarshan Pipes (SEPL), a PVC and HDPE pipe manufacturer in Bengaluru. It runs bulk WhatsApp campaigns from Excel with pacing, caps, business-hours sending and automatic safety stops; an AI inbox that answers from the company knowledge base with Hinglish-aware opt-outs and human handoff; OCR and LLM extraction of tender BOQs into GST quotations; AI tools for sales staff; and vendor KYC and staff registration forms. Built with React 19, Vite, Node.js, Express, Socket.IO, Supabase, Baileys, the WhatsApp Cloud API and NVIDIA-hosted models. Live: https://aisudarshanpipes.vercel.app/
+
+- [ZiGBoT AI](https://aibhaveshportfolio.vercel.app/projects/zigbot): An AI Discord bot and web dashboard that replaces separate moderation, music and chatbot bots with one bot that has a personality. It offers per-server personalities (Gentle, Savage, Neutral or a custom persona, in English or Hinglish), user-controlled memory with 30-day expiry, a 30-day reputation system, plain-language moderation checked against real Discord permissions, Premium music and Hindi/English voice chat, and safety rules enforced in code. Built with Node.js, discord.js, Groq (NVIDIA fallback), MongoDB, Next.js, Supabase and Razorpay; 627 automated tests. Live: https://zigbotai.vercel.app
+
+## Other work
+
+- AI Automation Workflow Suite, AI Agent Store (Sep 2025 – present): 15+ automation workflows, 40% operations reduction, 60% team adoption. https://www.aiagentstore.io/
+- WhatsApp Lead Automation System, JustHR (Jul–Sep 2025): OpenAI-powered WhatsApp chatbot handling 100+ leads per day, bulk outreach to 300–500 contacts per campaign, under-15-minute lead routing, 3 hours saved daily.
+- Karnataka Bangle Store, offline to online (Nov 2025 – Feb 2026): 50+ SEO listings on Meesho and Etsy and a 24/7 WhatsApp AI support chatbot. https://karnatakabanglestore.com/
+- AI-assisted UGD pipe product catalogue for Sudarshan Pipes: an 8-page catalogue aligned to IS 15328 and IS 16098, later reused as the WhatsApp assistant's knowledge base. https://aibhaveshportfolio.vercel.app/UGD_catalogue.pdf
+
+## Contact
+
+- Email: tiwaribhaveshkumar@gmail.com
+- LinkedIn: https://www.linkedin.com/in/bhavesh-kumar-tiwari-5043862b4/
+- GitHub: https://github.com/ZiG-AI-0909
+- Portfolio: https://aibhaveshportfolio.vercel.app
+- Resume: https://aibhaveshportfolio.vercel.app/Resume.docx

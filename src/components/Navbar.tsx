@@ -5,7 +5,7 @@ import { contact, external, navLinks } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const useActiveSection = (ids: string[]) => {
-  const [active, setActive] = useState(ids[0]);
+  const [active, setActive] = useState<string | undefined>(ids[0]);
 
   useEffect(() => {
     let frame = 0;
@@ -13,7 +13,8 @@ const useActiveSection = (ids: string[]) => {
     const update = () => {
       frame = 0;
       const line = window.innerHeight * 0.35;
-      let current = ids[0];
+      // Pages without these sections (the project pages) highlight nothing.
+      let current = document.getElementById(ids[0]) ? ids[0] : undefined;
       for (const id of ids) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= line) current = id;
@@ -80,7 +81,7 @@ const Navbar = () => {
         )}
       >
         <nav aria-label="Primary" className="container-content flex h-[var(--nav-height)] items-center justify-between gap-4">
-          <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-foreground">
+          <a href="/" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight text-foreground">
             <span className="logo-mark">
               <img src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
             </span>
@@ -91,7 +92,7 @@ const Navbar = () => {
             {navLinks.map(l => (
               <li key={l.id}>
                 <a
-                  href={`#${l.id}`}
+                  href={`/#${l.id}`}
                   aria-current={active === l.id ? "location" : undefined}
                   className={cn(
                     "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
@@ -143,7 +144,7 @@ const Navbar = () => {
                 {navLinks.map(l => (
                   <li key={l.id}>
                     <a
-                      href={`#${l.id}`}
+                      href={`/#${l.id}`}
                       onClick={() => setOpen(false)}
                       aria-current={active === l.id ? "location" : undefined}
                       className={cn(

@@ -1,4 +1,5 @@
-import { contact, external, navLinks, productLinks } from "@/lib/site";
+import { products } from "@/lib/products";
+import { contact, external, navLinks } from "@/lib/site";
 
 const linkClass = "text-sm text-muted-foreground transition-colors hover:text-foreground";
 
@@ -6,9 +7,9 @@ const Footer = () => (
   <footer className="border-t border-white/[0.06] bg-surface-1/50">
     <div className="container-content grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
       <div>
-        <a href="#home" className="flex items-center gap-2.5 font-display text-lg font-bold text-foreground">
+        <a href="/" className="flex items-center gap-2.5 font-display text-lg font-bold text-foreground">
           <span className="logo-mark">
-            <img src="/logo.png" alt="" width={28} height={28} className="h-7 w-7 rounded-md" />
+            <img src="/logo.png" alt="" width={28} height={28} loading="lazy" className="h-7 w-7 rounded-md" />
           </span>
           Bhavesh Kumar Tiwari
         </a>
@@ -22,7 +23,7 @@ const Footer = () => (
         <ul className="mt-4 space-y-2.5">
           {navLinks.map(l => (
             <li key={l.id}>
-              <a href={`#${l.id}`} className={linkClass}>
+              <a href={`/#${l.id}`} className={linkClass}>
                 {l.label}
               </a>
             </li>
@@ -33,16 +34,13 @@ const Footer = () => (
       <div>
         <p className="font-mono text-xs uppercase tracking-widest text-foreground/80">Products</p>
         <ul className="mt-4 space-y-2.5">
-          <li>
-            <a href={productLinks.zigbot.live} {...external} className={linkClass}>
-              ZiGBoT AI
-            </a>
-          </li>
-          <li>
-            <a href={productLinks.sudarshan.live} {...external} className={linkClass}>
-              Sudarshan Pipes AI Assistant
-            </a>
-          </li>
+          {products.map(p => (
+            <li key={p.slug}>
+              <a href={`/projects/${p.slug}`} className={linkClass}>
+                {p.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 

@@ -10,6 +10,8 @@ import MoreWorkSection from "@/components/MoreWorkSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import TechStackSection from "@/components/TechStackSection";
 import ResultsSection from "@/components/ResultsSection";
+import CertificationsSection from "@/components/CertificationsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -40,6 +42,8 @@ const Index = () => {
         <ExperienceSection />
         <TechStackSection />
         <ResultsSection />
+        <CertificationsSection />
+        <TestimonialsSection />
         <ContactSection />
       </main>
       <div className="relative z-10">
