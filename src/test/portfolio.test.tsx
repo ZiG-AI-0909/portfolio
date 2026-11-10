@@ -44,7 +44,7 @@ describe("portfolio page", () => {
     renderPage();
     const zig = screen.getByRole("link", { name: /visit zigbot ai/i });
     const sud = screen.getByRole("link", { name: /explore sudarshan ai/i });
-    expect(zig).toHaveAttribute("href", "https://zigbotai.vercel.app");
+    expect(zig).toHaveAttribute("href", "https://zigbot.in/");
     expect(sud).toHaveAttribute("href", "https://aisudarshanpipes.vercel.app/");
     for (const link of [zig, sud, screen.getByRole("link", { name: /add to discord/i })]) {
       expect(link).toHaveAttribute("target", "_blank");

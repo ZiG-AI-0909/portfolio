@@ -172,7 +172,7 @@ export const products: Product[] = [
       "Moderation in plain language or slash commands, checked against real Discord permissions, with Confirm buttons and an audit log",
       "Premium music (YouTube, SoundCloud backup) and voice chat that understands Hindi and English speech",
       "Safety no setting can turn off: crisis helplines, no roasting for under-18 roles, no pings, never asks for Administrator",
-      "Web dashboard at zigbotai.vercel.app: configure persona, roles, channels, music, voice and GIFs, test replies, and subscribe via Razorpay",
+      "Web dashboard at zigbot.in: configure persona, roles, channels, music, voice and GIFs, test replies, and subscribe via Razorpay",
     ],
     results: [
       "Live and open to any server: Add to Discord, then configure everything from the web dashboard",
